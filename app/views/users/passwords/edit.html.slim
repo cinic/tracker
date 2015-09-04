@@ -1,0 +1,11 @@
+- content_for :title, "#{t('views.user.password_reset_title2')}"
+h2 = t('views.user.password_reset_title2')
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+  == render "shared/error_messages", target: resource
+  = f.hidden_field :reset_password_token
+  .field
+    = f.label :password
+    = f.password_field :password, class: 'span12', placeholder: t('activerecord.attributes.user.password'), autofocus: true, autocomplete: "off"
+  .actions
+    = f.submit t('views.user.change_password'), class: 'btn-glow primary login'
+= render "users/shared/links"

@@ -1,0 +1,43 @@
+.row.fullwidth
+  .columns
+    h1.page-title Купить новое устройство
+.row.fullwidth
+  .large-12.small-12.columns
+    p Показания механического датчика смыкания (установить новое/показать текущее расчетное) (синхронизируется, чтобы потом фиксировать расходжения в количестве срабатываний механического и электронного датчика (оба датчика одновременно рабочим заблокировать сложно, если есть расхождения укажет руководителю на необходимость расследования); но его может не быть, поэтому заполнение данного поля опционально)
+.row.fullwidth
+  .small-12.large-9.columns
+    .support-form
+      form action="#"
+        .row.collapse
+          .large-3.small-12.columns
+            label for="name" Email
+          .large-4.small-12.columns.end
+            input type="text" name="name"
+        .row.collapse
+          .large-3.small-12.columns
+            label for="phone" Телефон
+          .large-1.small-4.columns
+            label.bottom-label for="coutry"
+              input type="text" name="coutry" id="country"
+              | код страны
+          .large-1.small-4.columns
+            label.bottom-label for="region"
+              input type="text" name="region" id="region"
+              | код региона
+          .large-2.small-4.columns.end
+            label.bottom-label.text-center for="phone"
+              input type="text" name="phone" id="phone"
+              | телефон
+        .row.collapse.mtm-extra
+          .large-3.small-12.columns
+            label for="name" Имя
+          .large-4.small-12.columns.end
+            input type="text" name="name"
+        .row.collapse
+          .large-3.small-12.columns
+            label for="text" Текст
+          .large-9.small-12.columns
+            textarea#text name="text" cols="30" rows="10" Хочу купить
+        .row.collapse.mtm-extra
+          .large-2.large-offset-3.small-12.columns
+            input type="submit" class='button expand' value="Отправить"

@@ -1,0 +1,68 @@
+#deviceNew {
+  .fa, .label-text {
+    // float: left;
+  }
+  .fa {
+    margin: 4px;
+  }
+  label input[type="radio"] {
+    margin-right: 10px;
+  }
+  button.button {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  small {
+    font-size: 90%;
+  }
+}
+
+// ui-router modal settings
+
+.Modal-backdrop
+{
+ position: fixed;
+ top: 0px;
+ left: 0px;
+ height:100%;
+ width:100%;
+ background: #000;
+ z-index: 1;
+ opacity: 0.5;
+}
+ 
+.Modal-holder
+{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+  background: transparent;
+  z-index: 1020;
+  padding: 30px 15px;
+}
+
+
+.Modal-box
+{
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+  padding: 15px;
+  // border-radius: 4px;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.3);
+  position: relative;
+  top: 10%;
+  // left: 20%;
+  z-index: 1021;
+}
+ 
+@media screen and (min-width: 992px)
+{
+  .Modal-box
+  {
+    width: 50%;
+    padding: 30px;
+  }
+}

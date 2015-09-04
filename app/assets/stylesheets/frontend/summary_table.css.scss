@@ -1,0 +1,125 @@
+.factor-names {
+  td {
+    border-bottom: 4px solid #e7e8ea;
+  }
+  td.norm {
+    border-bottom-color: #a4dc85;
+  }
+  td.acl {
+    border-bottom-color: #a1d1f3;
+  }
+  td.fail {
+    border-bottom-color: #f87e72;
+  }
+  td.idle {
+    border-bottom-color: #eeb679;
+  }
+  td.fact {
+    border-bottom-color: #d9a0ea;
+  }
+  td.pos {
+    border-bottom-color: #f87e72;
+  }
+  td.pop {
+    border-bottom-color: #eeb679;
+  }
+  td.sn {
+    border-bottom-color: #a4dc85;
+  }
+  td.ssu {
+    border-bottom-color: #a1d1f2;
+  }
+  td.targ {
+    border-bottom-color: #ead581;
+  }
+  td.cons {
+    border-bottom-color: #d9a0ea;
+  }
+}
+
+.factor-values.odd {
+  td.norm {
+    background: #edf8e7;
+  }
+  td.acl {
+    background: #ecf6fd;
+  }
+  td.fail {
+    background: #fee5e3;
+  }
+  td.idle {
+    background: #fcf0e4;
+  }
+  td.fact {
+    background: #f7ecfb;
+  }
+  td.pos {
+    background: #fde0dd;
+  }
+  td.pop {
+    background: #faebdb;
+  }
+  td.sn {
+    background: #edf8e7;
+  }
+  td.ssu {
+    background: #e6f3fc;
+  }
+  td.targ {
+    background: #f9f2d9;
+  }
+  td.cons {
+    background: #f7ecfb;
+  }
+}
+
+.factor-values.even, .factor-values.summary {
+  td.norm {
+    background: #e5f0df;
+  }
+  td.acl {
+    background: #e4eef5;
+  }
+  td.fail {
+    background: #f6dddb;
+  }
+  td.idle {
+    background: #f4e8dc;
+  }
+  td.fact {
+    background: #efe4f3;
+  }
+  td.pos {
+    background: #f6d9d6;
+  }
+  td.pop {
+    background: #f3e4d3;
+  }
+  td.sn {
+    background: #e5f0df;
+  }
+  td.ssu {
+    background: #deebf4;
+  }
+  td.targ {
+    background: #f2ebd2;
+  }
+  td.cons {
+    background: #efe4f3;
+  }
+}
+
+.factor-values.summary {
+  td {
+    font-weight: bold;
+    
+  }
+}
+
+.factor-values {
+  td {
+    color: #7a818c;
+    border-bottom: none;
+    border-top: none;
+  }
+}

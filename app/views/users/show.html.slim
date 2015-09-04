@@ -1,0 +1,118 @@
+-content_for :modals do
+  =render 'shared/account_info'
+  =render 'shared/edit_password'
+  =render 'shared/schedule'
+
+.row.fullwidth
+  .columns
+    h1.page-title 
+      | Личный кабинет
+.row.fullwidth
+  .large-6.columns
+    h2.section-title.mtm
+      | Персональные данные
+      a href="#" data-reveal-id="accountInfo"
+        span.edit-icon
+    .section-data.mtm
+      dl
+        dt Имя
+        dd Имя
+        dt Фамилия
+        dd Фамилия
+        dt Компания
+        dd Компания
+        dt Телефон
+        dd Телефон
+        dt Почтовый адрес для корреспонденции
+        dd Почтовый адрес для корреспонденции
+  .large-6.columns
+    h2.section-title.mtm
+      | Логин/пароль
+      a href="#" data-reveal-id="editPass"
+        span.edit-icon
+    .section-data.mtm
+      dl
+        dt Email/логин
+        dd Имя
+        dt Пароль
+        dd Фамилия
+        dt 
+        dd
+          a.common-link href="#" вспомнить пароль 
+        dt 
+        dd
+          a.common-link href="#" поменять пароль
+.row.fullwidth
+  .large-12.columns
+    h2.section-title.mtm 
+      | Подписка
+      a href="#" 
+        span.edit-icon
+    .section-data.mtm
+      | Система активирована до 12.09.2015 для продления заполните форму.
+
+.row.fullwidth
+  .large-12.columns
+    h2.section-title.mtm 
+      | Рабочий график по уполчанию
+      a href="#" data-reveal-id="shedule"
+        span.edit-icon
+    .section-data.mtm
+      p Неделя начинается с Пн
+      p Ваш часовой пояс:  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur soluta nisi obcaecati minima!
+      table
+        thead
+          tr
+            th Время
+            th ПН
+            th ВТ
+            th СР
+            th ЧТ
+            th ПТ
+            th.off-time СБ
+            th.off-time ВС
+        tbody
+          tr
+            td Рабочее время
+            td
+            td
+            td
+            td
+            td
+            td.off-time
+            td.off-time
+          tr
+            td Перерыв
+            td
+            td
+            td
+            td
+            td
+            td.off-time
+            td.off-time
+.row.fullwidth
+  .large-12.columns
+    h2.section-title.mtm 
+      | Ваши агенты
+    p Контакты всех дилеров, у которых было куплено этим клиентом хотя бы одно устройство.
+    .section-data
+      table
+        thead
+          tr
+            th Наименование
+            th Агент
+            th Контакты агента
+        tbody
+          tr
+            td Устройство 1
+            td Компания 1
+            td 12345, Страна, Город, ул. Проспект разработчика, д. 1 т.: +7 (123) 456 78 90, E-mail: kkjhch@gmail.com
+
+          tr
+            td Устройство 1
+            td Компания 1
+            td 12345, Страна, Город, ул. Проспект разработчика, д. 1 т.: +7 (123) 456 78 90, E-mail: kkjhch@gmail.com
+          tr
+            td Устройство 1
+            td Компания 1
+            td 12345, Страна, Город, ул. Проспект разработчика, д. 1 т.: +7 (123) 456 78 90, E-mail: kkjhch@gmail.com

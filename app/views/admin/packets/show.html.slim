@@ -1,0 +1,7 @@
+- content_for :title, "Данные устройства #{@admin_data_device.name}"
+- content_for :page_title, "Данные устройства #{@admin_data_device.name}"
+p#notice = notice
+
+h3 = @admin_data_device.device.name
+p = @admin_data_device.content
+= link_to 'Назад', admin_data_devices_path

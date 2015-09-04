@@ -1,0 +1,9 @@
+.login-menu
+  h2 = t('frontend.pages.user_login.title')
+  .login-form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.email_field :email, placeholder: t('activerecord.attributes.user.email'), id: 'login'
+      = f.password_field :password, placeholder: t('activerecord.attributes.user.password'), id: 'password'
+      = f.submit t('views.user.authorize'), class: 'button expand'
+    .login-links
+      == render 'users/shared/links'

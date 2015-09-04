@@ -1,0 +1,8 @@
+- content_for :title, "Регистрация"
+.span4.box
+  .content-wrap
+    h2 Регистрация
+    == render 'form_signup'
+.span4.already.no-account
+  p Есть аккаунт?
+  = link_to 'Войти', login_path

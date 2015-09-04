@@ -1,0 +1,36 @@
+= form_for @device do |f|
+  - if @device.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@device.errors.count, "error")} prohibited this device from being saved:"
+      ul
+        - @device.errors.full_messages.each do |message|
+          li = message
+  .form-row
+    = f.label :name,  t('activerecord.attributes.device.name')
+    = f.text_field :name
+  .form-row
+    = f.label :imei, t('activerecord.attributes.device.imei')
+    = f.text_field :imei
+  .form-row
+    = f.label :interval, t('activerecord.attributes.device.interval')
+    = f.text_field :interval
+  .form-row
+    = f.label :slot_number, t('activerecord.attributes.device.slot_number')
+    = f.text_field :slot_number
+  .form-row
+    = f.label :normal_cycle, t('activerecord.attributes.device.normal_cycle')
+    = f.text_field :normal_cycle
+  .form-row
+    = f.label :material_consumption, t('activerecord.attributes.device.material_consumption')
+    = f.text_field :material_consumption
+  .form-row
+    = f.label :sensor_readings, t('activerecord.attributes.device.sensor_readings')
+    = f.text_field :sensor_readings
+  .form-row
+    = f.label :schedule, t('activerecord.attributes.device.schedule')
+    = f.text_field :schedule
+  .form-row
+    = f.label :description, t('activerecord.attributes.device.description')
+    = f.text_area :description
+  .actions
+    = f.submit (@device.new_record? ? t('views.device.add_device') : t('views.device.save_device')), class: 'btn-flat success'

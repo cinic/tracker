@@ -1,0 +1,15 @@
+<div class="perf-chart">
+  <div class="perf-chart__header clearfix">
+    <h4>Производительность</h4>
+    <div class="header__detailed">
+      <a ui-sref="performance">&#8594; подробней</a>
+    </div>
+  </div>
+  
+  <div class="perf-chart__menu">
+    <ul>
+      <li ng-class="{'active':perfDisplayIn == 'products'}" ng-click="switchPerfDisplayInTo('products')">Изделий</li>
+      <li ng-class="{'active':perfDisplayIn == 'cycles'}" ng-click="switchPerfDisplayInTo('cycles')">Смыканий</li>
+    </ul>
+  </div>
+</div>

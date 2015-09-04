@@ -1,0 +1,11 @@
+- content_for :title, "#{t('views.user.send_instructions_again')}"
+  
+h2 = t('views.user.send_instructions_again')
+= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+  == render "shared/error_messages", target: resource
+  .field
+    = f.label :email, t('activerecord.attributes.user.email')
+    = f.email_field :email, placeholder: t('activerecord.attributes.user.email'), autofocus: true, class: 'span12'
+  .actions
+    = f.submit t('views.user.send_password_instructions'), class: 'btn-glow primary login'
+= render "users/shared/links"

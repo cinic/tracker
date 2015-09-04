@@ -1,0 +1,293 @@
+// .arc path {
+//   stroke: #fff;
+//   stroke-width: 4px;
+// }
+
+.modes-chart {
+  h4 {
+    float: left;
+  }
+  .header__detailed {
+    float: right;
+    a {
+      color: #6f9acf;
+      line-height: 3;
+    }
+  }
+  .modes-chart__menu {
+    margin: 20px 0;
+    ul {
+      margin: 0;
+    }
+    li {
+      cursor: pointer;
+      list-style: none;
+      float: left;
+      width: 22%;
+      padding: 5px 20px;
+      border: 1px solid #dee2e9;
+      margin-right: 4%;
+      text-align: center;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+    li.active {
+      background: #9ba4b3;
+      color: #fff;
+    }
+   
+  }
+}
+
+.perf-chart {
+  h4 {
+    float: left;
+  }
+  .header__detailed {
+    float: right;
+    a {
+      color: #6f9acf;
+      line-height: 3;
+    }
+  }
+  .perf-chart__menu {
+    margin: 20px 0;
+    ul {
+      margin: 0;
+    }
+    li {
+      cursor: pointer;
+      list-style: none;
+      float: left;
+      width: 22%;
+      padding: 5px 20px;
+      border: 1px solid #dee2e9;
+      margin-right: 4%;
+      text-align: center;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+    li.active {
+      background: #9ba4b3;
+      color: #fff;
+    }
+   
+  }
+}
+
+.ctime-chart {
+  h4 {
+    float: left;
+  }
+  .header__detailed {
+    float: right;
+    a {
+      color: #6f9acf;
+      line-height: 3;
+    }
+  }
+  .ctime-chart__menu {
+    margin: 20px 0;
+    ul {
+      margin: 0;
+    }
+    li {
+      cursor: pointer;
+      list-style: none;
+      float: left;
+      width: 22%;
+      padding: 5px 20px;
+      border: 1px solid #dee2e9;
+      margin-right: 4%;
+      text-align: center;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+    li.active {
+      background: #9ba4b3;
+      color: #fff;
+    }
+   
+  }
+}
+
+.consump-chart {
+  h4 {
+    float: left;
+  }
+  .header__detailed {
+    float: right;
+    a {
+      color: #6f9acf;
+      line-height: 3;
+    }
+  }
+  .consump-chart__menu {
+    margin: 20px 0;
+    ul {
+      margin: 0;
+    }
+    li {
+      cursor: pointer;
+      list-style: none;
+      float: left;
+      width: 22%;
+      padding: 5px 20px;
+      border: 1px solid #dee2e9;
+      margin-right: 4%;
+      text-align: center;
+    }
+    li:last-child {
+      margin-right: 0;
+    }
+    li.active {
+      background: #9ba4b3;
+      color: #fff;
+    }
+   
+  }
+}
+
+.summary-table {
+  thead {
+    text-transform: uppercase;
+  }
+  td {
+    text-align: center;
+  }
+  td:first-child {
+    width: 10%;
+  }
+  td:last-child {
+    width: 12%;
+  }
+}
+
+.cell-title, .cell-select {
+  display: inline-block;
+}
+
+.cell-select {
+  height: 25px;
+  select {
+    width: 100px;
+  }
+}
+
+// charts axises
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #e7e8ea;
+  shape-rendering: crispEdges;
+  stroke-width: 4px;
+}
+.axis {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #5f6775;
+}
+.y.axis.perf {
+  font-size: 22px;
+}
+
+
+
+
+// detailed chart
+
+// detailed charts axises
+
+.full-charts {
+  .axis text {
+    font-family: sans-serif;
+    font-size: 12px;
+  }
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #e7e8ea;
+    shape-rendering: crispEdges;
+    stroke-width: 2px;
+  }
+}
+
+// other
+
+.header__top, .header__bottom {
+  position: relative;
+  text-align: center;
+}
+
+.header__top ul {
+  margin: 0 auto;
+  width: 550px;
+  display: block;
+  text-align: center;
+}
+
+
+
+.header__top a {
+  color: #598bc8;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.full-charts__menu {
+  margin: 0;
+}
+
+.full-charts__menu li {
+  display: inline-block;
+  border-bottom: 1px dotted #9ba4b3;
+  color: #9ba4b3;
+  margin-right: 12px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.full-charts__menu li.active {
+  color: #fff;
+  background: #9ba4b3;
+}
+
+.full-charts__menu li:last-child {
+  margin-right: 0;
+}
+
+.full-charts__submenu {
+  margin: 10px auto 0 auto;
+  // width: 430px;
+  display: inline-block;
+  text-align: center;
+  
+  li {
+    cursor: pointer;
+    list-style: none;
+    float: left;
+    width: 100px;
+    padding: 5px 10px;
+    border: 1px solid #dee2e9;
+    margin-right: 10px;
+    text-align: center;
+  }
+  li.active {
+    color: #fff;
+    background: #9ba4b3;
+  }
+  li:last-child {
+    margin-right: 0;
+  }
+}
+
+.no-data {
+  font-size: 22px;
+  font-weight: bold;
+  fill: #5f6775;
+}

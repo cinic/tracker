@@ -1,0 +1,120 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        name: 'Имя Фамилия'
+        password: 'Пароль'
+        email: 'Email'
+        reset_password_token: 'Токен для сброса пароля'
+        confirmation_token: 'Токен для подтверждения email'
+        banned: 'Аккаунт заблокирован.'
+      device:
+        name: 'Название устройства'
+        imei: 'Серийный номер, IMEI'
+        interval: 'Интервал передачи данных'
+        material_consumption: 'Расход материала на цикл'
+        normal_cycle: 'Диапазон нормального цикла'
+        slot_number: 'Количество гнёзд в форме'
+        schedule: 'Рабочий график'
+        sensor_readings: 'Показания механического датчика'
+        description: 'Комментарий'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'уже зарегистрирован.'
+              not_found: 'не найден, возможно регистрировались на другой?'
+              blank: 'необходимо заполнить.'
+            password:
+              blank: 'необходимо заполнить'
+            name:
+              blank: 'необходимо заполнить'
+            reset_password_token:
+              blank: 'не может быть пустым'
+            confirmation_token:
+              blank: 'не может быть пустым'
+        device:
+          blank: 'необходимо заполнить'
+          attributes:
+            imei:
+              wrong_length: 'должен состоять из 15 цифр'
+              invalid: 'должен содержать только цифры'
+              taken: 'уже существует'
+            slot_number:
+              less_than_or_equal_to: 'максимальное значение 200'
+              not_a_number: 'должно состоять из цифр'
+            material_consumption:
+              not_a_number: 'должно состоять из цифр и быть больше 0'
+              greater_than: 'должно быть больше 0'
+            sensor_readings:
+              not_a_number: 'должно быть натуральным числом'
+      messages:
+        record_invalid: 'Неверная запись'
+  views:
+    dashboard:
+      title: 'Общий мониторинг'
+    user:
+      change_password: 'Изменить пароль'
+      send_instructions_again: 'Отправить инструкцию повторно'
+      send_password_instructions: 'Отправить инструкцию'
+      password_reset_title: 'Восстановление пароля'
+      password_reset_title2: 'Изменение пароля'
+      authorization_title: 'Авторизация'
+      authorize: 'Войти'
+      remember_me: 'Запомнить меня'
+      registration_title: 'Регистрация'
+      register: 'Зарегистрироваться'
+      forgot_password?: 'Забыли пароль?'
+      not_receive_letter?: 'Не получили письмо с инструкцией?'
+      user_successfully_updated: 'Профиль обновлён.'
+    device:
+      add_device: 'Добавить устройство'
+      save_device: 'Сохранить'
+      device_successfully_added: 'Устройство добавлено и отправлено менеджеру на проверку.'
+      device_successfully_updated: 'Параметры устройства обновлены.'
+      data_received: 'Данные получены'
+      new: 'На проверке у менеджера.'
+      confirmed: 'Подтверждено'
+      rejected: 'Отклонено'
+    pagination:
+      first: "&lsaquo;"
+      last: "&rsaquo;"
+      previous: "&lsaquo; предыдущая"
+      next: "следующая &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Записей не найдено."
+          one: "Показана <b>1</b> запись."
+          other: "Показаны <b>все %{count}</b> записи."
+      more_pages:
+        display_entries: "Показано <b>%{first}&nbsp;–&nbsp;%{last}</b> из <b>%{total}</b> записей."
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%M:%S"
+      short: "%H:%M"
+      notime: "%d.%m.%Y"
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [Воскресенье, Понедельник, Вторник, Среда, Четверг, Пятница, Суббота]
+    abbr_day_names: [Вс, Пн, Вт, Ср, Чт, Пт, Сб]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
+    abbr_month_names: [~, Янв, Фев, Мар, Апр, Мая, Июн, Июл, Авг, Сен, Окт, Нов, Дек]
+    # Used in date_select and datetime_select.
+    order:
+      - year
+      - month
+      - day
+  api:
+    errors:
+      graph:
+        no_date: 'Необходимо выбрать дату'

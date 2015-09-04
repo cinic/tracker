@@ -1,0 +1,228 @@
+.main-content {
+  margin: 25px 0;
+}
+
+.bottom-label {
+  font-size: 10px;
+  input {
+    margin-bottom: 5px !important;
+  }
+}
+
+.page-title {
+  // font-weight: bold;
+  font-size: 26px;
+}
+
+.accordion-navigation a {
+  text-transform: uppercase;
+  color: #598bc8 !important;
+  margin: 5px;
+  border: 1px solid #eee;
+}
+.accordion .accordion-navigation > a, .accordion dd > a {
+  background: #fff !important;
+}
+.edit-icon {
+  background: image-url("ico_edit.png") no-repeat center;
+  height: 14px;
+  width: 14px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.section-title {
+  margin: 30px 0;
+}
+
+.section-data {
+  dt {
+    float: left;
+    text-align: left;
+    width: 40%;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      text-transform: uppercase;
+      text-align: center;
+      border: 2px solid #eee;
+    }
+    th:first-child {
+      text-align: left;
+    }
+    td {
+      border: 1px solid #eee;
+    }
+    td.off-time, th.off-time {
+      background: #fdf1f1;
+    }
+    tr:last-child {
+      border-bottom: 2px solid #eee;
+    }
+  }
+}
+.common-link {
+  color: #598bc8;
+}
+
+.close-reveal-modal {
+  background: image-url("btn_close.png") center no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+.close-modal {
+  background: image-url("btn_close.png") center no-repeat;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-size: 90%;
+  cursor: pointer;
+}
+
+
+.modal-title {
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.z-icon-ok {
+  background: image-url("ico_ok.png") center no-repeat;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  background-size: 90%;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"] {
+  height: 25px !important;
+  line-height: 1.5;
+}
+input[type="submit"] {
+  font-size: 14px !important;
+  text-transform: uppercase;
+}
+
+.shedule-variants {
+  li {
+    list-style: none;
+    float:left;
+    font-size: 13px;
+    color: #598bc8;
+    cursor: pointer;
+    padding: 4px;
+  }
+  li:hover {
+    background: #9ba4b3;
+    color: #fff;
+  }
+  ul, label {
+    display: block;
+    margin: 0;
+    float: left;
+  }
+  label {
+    margin-right: 12px;
+    line-height: 1.6;
+  }
+  ul {
+    line-height: 1.1;
+    margin-right: 10px;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  th {
+    text-transform: uppercase;
+    text-align: center;
+    border: 2px solid #eee;
+    .title {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    label {
+      text-transform: none;
+    }
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+  }
+  th:first-child {
+    text-align: left;
+  }
+  td {
+    border: 1px solid #eee;
+    vertical-align: top;
+    .date-range {
+      position: relative;
+      input {
+        width: 45%;
+        display: inline-block;
+        font-size: 12px;
+        // margin: 0 5px;
+    }
+      input:last-child {
+        margin-left: 2px;
+      }
+      input:first-child {
+        margin-right: 2px;
+      }
+    }
+    .add-workbreak {
+      text-align: center;
+      a {
+        color: #598bc8;
+      }
+    }
+  }
+  td.off-time, th.off-time {
+    background: #fdf1f1;
+  }
+  tr:last-child {
+    border-bottom: 2px solid #eee;
+  }
+}
+
+.wbrk-rm {
+  background: image-url("ico_rm_workbreak.png") no-repeat center;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  left: 50px;
+  cursor: pointer;
+}
+
+.button .fa {
+  margin-right: 10px;
+}
+
+.faq a {
+  margin: 2px 0;
+}
+
+.faq .active a {
+  background: #f4f4f5 !important;
+  color: #5f6775 !important;
+}
+
+.faq .active .content {
+  border: 1px solid #eee;
+}
+
+.login-form {
+  input {
+    height: 35px !important;
+  }
+}
+
+.input-ct {
+  text-align: center;
+}

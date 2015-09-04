@@ -1,0 +1,66 @@
+<div class="row fullwidth">
+  <div class="large-6 columns">
+      <div class="modes-chart">
+        <div class="modes-chart__header clearfix">
+          <h4>Режимы устройства</h4>
+          <div class="header__detailed">
+            <a ui-sref="modes">&#8594; подробней</a>
+          </div>
+        </div>
+        
+        <div class="modes-chart__menu">
+          <ul>
+            <li ng-class="{'active':modesDisplayIn == 'cyclesInPercent'}" ng-click="displayModesIn('cyclesInPercent')">Циклы, %</li>
+            <li ng-class="{'active':modesDisplayIn == 'cyclesInQt'}" ng-click="displayModesIn('cyclesInQt')">Циклы, шт.</li>
+            <li ng-class="{'active':modesDisplayIn == 'timeInPercent'}" ng-click="displayModesIn('timeInPercent')">Часы, %</li>
+            <li ng-class="{'active':modesDisplayIn == 'timeInQt'}" ng-click="displayModesIn('timeInQt')">Часы, шт</li>
+          </ul>
+        </div>
+      </div>
+      <modes-chart legend="show" chart-data="modesData"></modes-chart>
+  </div>
+
+  <div class="large-6 columns">
+    <div class="perf-chart">
+      <div class="perf-chart__header clearfix">
+        <h4>Производительность</h4>
+        <div class="header__detailed">
+          <a ui-sref="performance">&#8594; подробней</a>
+        </div>
+      </div>
+      
+      <div class="perf-chart__menu">
+        <ul>
+          <li ng-class="{'active':perfDisplayIn == 'products'}" ng-click="switchPerfDisplayInTo('products')">Изделий</li>
+          <li ng-class="{'active':perfDisplayIn == 'cycles'}" ng-click="switchPerfDisplayInTo('cycles')">Смыканий</li>
+        </ul>
+      </div>
+    </div>
+    <perf-chart chart-data="perfData"></perf-chart>
+  </div> 
+</div>
+
+<div class="row fullwidth">
+  <div class="large-6 columns">
+      <div class="ctime-chart">
+        <div class="ctime-chart__header clearfix">
+          <h4>Время цикла</h4>
+          <div class="header__detailed">
+            <a ui-sref="ctime">&#8594; подробней</a>
+          </div>
+        </div>
+      </div>
+      <ctime-chart chart-data="ctimeData"></ctime-chart>
+  </div>
+  <div class="large-6 columns">
+    <div class="consump-chart">
+      <div class="consump-chart__header clearfix">
+        <h4>Расход материала</h4>
+        <div class="header__detailed">
+          <a ui-sref="consumption">&#8594; подробней</a>
+        </div>
+      </div>
+    </div>
+    <consump-chart chart-data="consumpData"></consump-chart>
+  </div>
+</div>

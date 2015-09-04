@@ -1,0 +1,22 @@
+= form_for @admin_user do |f|
+  = render "admin/shared/error_messages", target: @admin_user
+  .field-box
+    = f.label :name, 'Полное имя'
+    = f.text_field :name, class: "span5 inline-input"
+  .field-box
+    = f.label :email, 'Email'
+    = f.text_field :email, class: "span5 inline-input"
+  .field-box
+    = f.label :company, 'Компания'
+    = f.text_field :company, class: "span5 inline-input"
+  .field-box
+    = f.label :password, 'Пароль'
+    = f.text_field :password, class: "span5 inline-input"
+  .field-box
+    = f.label :time_zone, 'Часовой пояс'
+    = f.time_zone_select :time_zone, nil, :class => :timezone
+  .field-box
+    = f.label :banned do
+      = f.check_box :banned
+      | Заблокирован?
+  .actions = f.submit "Обновить", class: 'btn-flat success'

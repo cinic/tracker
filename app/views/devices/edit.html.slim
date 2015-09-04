@@ -1,0 +1,7 @@
+- content_for :title, "Редактирование устройства #{@device.name}"
+- content_for :page_title, "Редактирование устройства #{@device.name}"
+
+== render 'form'
+
+= link_to 'Назад', devices_path
+

@@ -1,0 +1,13 @@
+- content_for :title, "Администратор #{@admin_admin.id}"
+- content_for :page_class, "user-profile"
+p#notice = notice
+.row-fluid.header
+  .span8
+    span.avatar.img-circle
+      span.fa.fa-user style="width:88px;height:88px;font-size:80px;text-align:center;"
+    h3.name = @admin_admin.name
+    span.area = @admin_admin.email
+
+= link_to 'Редактировать', edit_admin_admin_path(@admin_admin)
+'|
+= link_to 'Назад', admin_admins_path

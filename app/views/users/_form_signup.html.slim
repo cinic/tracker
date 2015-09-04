@@ -1,0 +1,7 @@
+= form_for @user, url: signup_path do |f|
+  = render "shared/error_messages", target: @user
+  = f.text_field :name, placeholder: "Полное имя", class: 'span12'
+  = f.email_field :email, placeholder: "Email", class: 'span12'
+  = f.text_field :company, placeholder: "Название компании", class: 'span12'
+  = f.password_field :password, placeholder: "Пароль", class: 'span12'
+  .actions = f.submit "Зарегистрироваться", class: "btn-glow primary login"

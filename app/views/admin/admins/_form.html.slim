@@ -1,0 +1,15 @@
+= form_for @admin_admin do |f|
+  = render "shared/error_messages", target: @admin_admin
+  .field-box
+    = f.label :role, 'Роль'
+    = f.select(:role, [['Админ', 1], ['Суперадмин', 0]])
+  .field-box
+    = f.label :name, 'Полное имя'
+    = f.text_field :name, class: "span5 inline-input"
+  .field-box
+    = f.label :email, 'Email'
+    = f.text_field :email, class: "span5 inline-input"
+  .field-box
+    = f.label :password, 'Пароль'
+    = f.password_field :password, class: "span5 inline-input"
+  .actions = f.submit (@admin_admin.new_record? ? "Создать" : "Сохранить"), class: 'btn-flat success'

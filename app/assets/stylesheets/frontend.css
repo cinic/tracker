@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree ./frontend
+ *= require data_uri_images
+ *= require loading-bar
+ *= require_self
+ *= require frontend/foundation_and_overrides
+ */
+
+
+.logo-svg {
+  background-size: 90%;
+  background-repeat: no-repeat;
+}
+
+.firm-logo {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 10em;
+  width: 7em;
+  margin: 5px auto;
+}
+
+.ver {
+  height: 5em;
+  width: 4em;
+  margin: 5px auto;
+  background-position: center;
+  position: absolute;
+  left: 30%;
+  z-index: 9999;
+  top: 10px;
+}
+
+.hor {
+  height: 3em;
+  width: 15em;
+}
+
+.logo-firm-hor {
+  background-size: 90%;
+  background-repeat: no-repeat;
+  height: 3em;
+  width: 12em;
+  margin: 0 auto;
+}
+
+td {
+  border: 1px #444 solid;
+  padding: 10px;
+}
+
+#switcher a{
+  display: inline-block;
+  margin-top: 5px 10px;
+  padding: 5px;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+}
+
+#graphArea2 {
+  margin: 20px;
+}
+
+.chart {
+  display: inline-block;
+}
+
+h3 {
+  padding: 5px 10px;
+  background: red;
+  color: #fff;
+  display: block;
+}

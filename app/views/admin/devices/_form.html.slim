@@ -1,0 +1,37 @@
+= form_for @admin_device do |f|
+  = render "shared/error_messages", target: @admin_device
+  
+  .field-box
+    = f.label :status, 'Статус'
+    .ui-select = f.select( :status, [['Новое', 'new'], ['Подтверждено', 'confirmed'], ['Отклонено', 'rejected']], {}, {class: 'ui-select'} )
+  .field-box
+    = f.label :user_id, 'Владелец'
+    .ui-select = f.select(:user_id, User.all.collect {|p| [ p.name, p.id ] }, {include_blank: true}, {class: 'ui-select'})
+  .field-box
+    = f.label :name, 'Название устройства'
+    = f.text_field :name, class: 'span8 inline-input'
+  .field-box
+    = f.label :slot_number, 'Количество гнёзд в форме'
+    = f.text_field :slot_number, class: 'span8 inline-input'
+  .field-box
+    = f.label :normal_cycle, 'Диапазон нормального цикла'
+    = f.text_field :normal_cycle, class: 'span8 inline-input'
+  .field-box
+    = f.label :material_consumption, 'Расход материала на цикл'
+    = f.text_field :material_consumption, class: 'span8 inline-input'
+  .field-box
+    = f.label :sensor_readings, 'Показания механического датчика'
+    = f.text_field :sensor_readings, class: 'span8 inline-input'
+  .field-box
+    = f.label :schedule, 'Рабочий график'
+    = f.text_field :schedule, class: 'span8 inline-input'
+  .field-box
+    = f.label :interval, 'Интервал передачи данных'
+    = f.text_field :interval, class: 'span8 inline-input'
+  .field-box
+    = f.label :imei, 'Серийный номер, IMEI'
+    = f.text_field :imei, class: 'span8 inline-input'
+  .field-box
+    = f.label :description, 'Комментарий'
+    = f.text_area :description, class: 'span8 inline-input'
+  .actions = f.submit 'Сохранить', class: 'btn-flat success'

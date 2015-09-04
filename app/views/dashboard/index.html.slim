@@ -1,0 +1,35 @@
+- content_for :title, t('views.dashboard.title')
+- content_for :page_title, t('views.dashboard.title')
+
+p#notice = notice
+
+- unless @devices.nil?
+  = form_tag('/dashboard', method: :get) do
+    = select_date(1.month.ago, prefix: 'start_date')
+    br
+    = select_date(Time.zone.now, prefix: 'end_date')
+    br
+    = submit_tag 'Send'
+
+  ul
+    - @devices.each do |device|
+      li
+        = link_to device.name, dashboard_show_path(device) + "?" + request.query_string
+        br
+        = t("views.device.#{device.status}")
+        br
+        - unless device.state.nil?
+          = "Данные получены: #{device.state['datetime']}"
+          br
+          = "Заряд: #{device.state['v_batt']}"
+          br
+          = "GIS: #{device.state['gis']}"
+          br
+          = "Тип: #{device.device_type}"
+        br
+      - unless @triggers.nil? && @triggers[device.imei_substr].nil?
+        - @triggers[device.imei_substr.to_s].each do |trigger|
+          = "[#{l(trigger[0], format: :default)}, #{trigger[1]}]"
+
+= link_to t('views.device.add_device'), new_device_path
+/+ request.query_string

@@ -1,0 +1,41 @@
+- content_for :title, "Декодированные данные"
+- content_for :page_title, "Декодированные данные"
+- content_for :page_class, 'form-page'
+.row-fluid.head
+  .span12
+      h4
+        | Фильтр
+        .btn-group.pull-right
+          = render 'admin/shared/sortable', target: admin_states_path
+- @admin_service_device_data.each do |admin_service_device_datum|
+  .row-fluid
+    .span6
+      ul
+        li
+          |ID:&nbsp;
+          = admin_service_device_datum.id
+        li
+          |Device ID:&nbsp;
+          = admin_service_device_datum.device.id unless admin_service_device_datum.device.nil?
+        li
+          |Баланс:&nbsp;
+          = admin_service_device_datum.sim_balance
+        li
+          |Заряд:&nbsp;
+          = admin_service_device_datum.v_batt
+        li
+          |Температура:&nbsp;
+          = admin_service_device_datum.temp
+        li
+          |Дата:&nbsp;
+          = l(admin_service_device_datum.datetime, format: :default) unless admin_service_device_datum.datetime.nil?
+        li
+          |Координаты:&nbsp;
+          = admin_service_device_datum.gis
+        li
+          |Мощность сигнала:&nbsp;
+          = admin_service_device_datum.rssi unless admin_service_device_datum.rssi.nil?
+.row-fluid = page_entries_info @admin_service_device_data
+.row-fluid
+  .pagination.pull-left
+    = paginate @admin_service_device_data

@@ -1,0 +1,78 @@
+-content_for :modals do 
+  =render 'shared/device_settings'
+  =render 'shared/legend'
+  =render 'shared/scroll_nav_single'
+
+.ng-container ng-cloak="" ng-controller="DeviceController" ng-init="init(#{@device.id})"
+  .timeline-nav-detail
+    .timeline-header.clearfix
+      h1.timeline-title
+        | {{device.name}} 
+      .timeline-icons
+        a.device-states href="#" data-reveal-id="deviceStates"
+          span.device-states-ico
+        a.device-settings href="#" data-reveal-id="deviceSettings"
+          span.device-settings-ico
+        a.device-close href="/devices"
+          span.device-close-ico
+    .device-info
+      ul
+        li 
+          .ico-device-type
+          span.di-text ПФ
+        li
+          .ico-device-dr
+          span.di-text 
+            | {{device.ping.ping_was | date: 'dd.MM.yyyy в hh:mm'}} 
+        li
+          .ico-device-next-conn
+          span.di-text 
+            | {{device.ping.ping_will | date: 'dd.MM.yyyy в hh:mm'}} 
+    hr
+    .navigator-controls
+      .row.fullwidth
+        .large-4.small-12.columns
+
+          .datetime-range.clearfix
+            .dt-first
+              ul
+                li.dr-date 17 сент. 2014
+                li.dr-time 00:00
+            .dt-split
+              .ico-arrow-right
+            .dt-last
+              ul
+                li.dr-date 17 сент. 2014
+                li.dr-time 00:00
+          
+        .large-8.small-12.columns
+          .sc-header
+            timeline-menu selected-period="selectedPeriod"
+            zoom start="selectedPeriod.startDatetime" end="selectedPeriod.endDatetime" max="{{fullPeriod.endDatetime}}" min="{{fullPeriod.startDatetime}}"
+    timeline selected-period-begin="selectedPeriod.startDatetime" selected-period-end="selectedPeriod.endDatetime" full-period-begin="fullPeriod.startDatetime" full-period-end="fullPeriod.endDatetime" icons-path="#{asset_path 'svg_controls/timeline_icons.svg'}" marker-datetime="markerDatetime" marker-position="markerPosition"
+
+  .row.fullwidth
+    .large-12.columns
+      .charts.device-charts
+        chronograph2 intervals="clamps" start="{{selectedPeriod.startDatetime}}" end="{{selectedPeriod.endDatetime}}" marker-position="{{markerPosition}}" class="chron" marker-datetime="{{markerDatetime}}" zoom-color="zoomColors[$index]" did="{{device.id}}"
+
+  .charts-container ui-view=""
+      
+  .row.fullwidth
+    .large-12.columns
+      summary-table2 modes-display-in="modesDisplayIn" perf-display-in="perfDisplayIn" group-by="groupBy"
+
+  #deviceStates class="reveal-modal large" data-reveal="" 
+    h2.modal-title.text-center
+      b Состояния устройства
+    hr
+    .row.mtm.fullwidth
+      .large-12.columns
+        
+        device-states in-states="device.states" in-state-selected="stateSelected"
+            
+
+    .row.mtm-extra.fullwidth
+      .large-3.large-centered.columns.end
+        a href="#" class='button expand upcase' Закрыть 
+    a class="close-reveal-modal"

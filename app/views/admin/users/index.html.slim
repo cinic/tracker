@@ -1,0 +1,33 @@
+- content_for :title, "Пользователи"
+- content_for :page_title, "Список пользователей"
+.table-wrapper
+  table.table.table-hover
+    thead
+      tr
+        th.span2 ID
+        th.span3
+          span.line
+          |Имя Фамилия
+        th.span3
+          span.line
+          |Email
+        th.span3
+          span.line
+          |Статус
+        th.span3
+          span.line
+          |Email подтверждён
+        th.span2
+          span.line
+          |Действия
+    tbody
+      - @admin_users.each do |admin_user|
+        tr
+          td = link_to admin_user.id, admin_user
+          td = admin_user.name
+          td = admin_user.email
+          td
+          td = admin_user.confirmed_at
+          td
+            ul.actions
+              li = link_to 'Редактировать', edit_admin_user_path(admin_user)

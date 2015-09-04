@@ -1,0 +1,11 @@
+- content_for :title, "Редактирование устройства #{@admin_device.name}"
+- content_for :page_title, "Устройство #{@admin_device.name}"
+- content_for :page_class, 'form-page'
+
+.row-fluid.form-wrapper
+  == render 'form'
+
+= link_to 'Посмотреть', @admin_device
+'|
+= link_to 'Назад', admin_devices_path
+

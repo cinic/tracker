@@ -1,0 +1,15 @@
+= form_for @user do |f|
+  = render "shared/error_messages", target: @user
+  .field-box
+    = f.label :name, 'ФИО'
+    = f.text_field :name, class: "span5 inline-input"
+  .field-box
+    = f.label :email, 'Email'
+    = f.text_field :email, class: "span5 inline-input"
+  .field-box
+    = f.label :company, 'Компания'
+    = f.text_field :company, class: "span5 inline-input"
+  .field-box
+    = f.label :password, 'Пароль'
+    = f.text_field :password, class: "span5 inline-input"
+  .actions = f.submit (@user.new_record? ? "Зарегистрироваться" : "Обновить"), class: 'btn-flat success'

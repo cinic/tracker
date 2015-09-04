@@ -1,0 +1,44 @@
+- content_for :title, "Устройства"
+- content_for :page_title, "Все устройства"
+.table-wrapper
+  table.table.table-hover
+    thead
+      tr
+        th.span3 Серийный номер
+        th.span3
+          span.line
+          |Название
+        th.span1
+          span.line
+          |Интервал
+        th.span3
+          span.line
+          |Владелец
+        th.span2
+          span.line
+          |Статус
+        th.span2
+          span.line
+          |Действия
+    tbody
+      - @admin_devices.each do |device|
+        tr
+          td
+            = link_to device.imei, device
+            br
+            = "ID: #{device.id}"
+          td = device.name
+          td = device.interval
+          td 
+            - unless device.user.nil?
+              = link_to device.user.name, admin_user_path(device.user.id)
+          td
+            span.label.label-info = device.status if device.status == 'new'
+            span.label.label-success = device.status if device.status == 'confirmed'
+            span.label = device.status if device.status == 'rejected'
+          td
+            ul.actions
+              li = link_to 'Редактировать', edit_admin_device_path(device)
+              /li = link_to 'Подтвердить', admin_device_confirm_path(device), :method => :patch
+
+/= link_to 'New Device', new_admin_device_path

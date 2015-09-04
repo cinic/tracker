@@ -1,0 +1,22 @@
+header ng-controller="HeaderController"
+  .custom-navbar
+    .row.fullwidth
+      .large-3.small-12.columns
+        .navbar-logo
+          ul
+            li
+              a href="/" class="#{'active' if action_name == 'index'}" 
+                = uri_image "logoh.svg", class: 'logo-svg hor'
+      .large-6.small-12.columns 
+        navbar active-item="#{action_name}"
+      .large-3.small-12.columns
+        .lang-switcher
+          locale-dropdown available-values="availableLanguages" current="#{locale}"
+        -if current_user
+          .dvr
+          .menu-right
+            ul
+              li
+                =link_to '', user_path, class: 'profile'
+              li
+                =link_to '', destroy_user_session_path, method: :delete, class: 'exit'

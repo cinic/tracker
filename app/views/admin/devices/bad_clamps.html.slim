@@ -1,0 +1,23 @@
+- content_for :title, "Устройство #{@admin_device.name}"
+- content_for :page_title, "Грязные смыкания #{@admin_device.name}"
+p#notice = notice
+
+- if @bad_clamps.size > 0
+  .group
+    - @bad_clamps.each do |item|
+      h5
+        |ID:&nbsp;
+        = item[:id]
+      ul
+        li
+          |Duration:&nbsp;
+          = item[:duration]
+        li
+          |Packet ID:&nbsp;
+          = item[:packet_id]
+        li
+          |Time:&nbsp;
+          = item[:time]
+- else
+  .group
+    p Грязи не обнаружено!

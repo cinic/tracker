@@ -1,0 +1,18 @@
+<div class="full-charts">
+  <div class="full-chars__header">
+
+    <div class="header__top" ng-include="'charts_header_top.html'"> 
+    </div>
+    
+    <div class="header__bottom">
+      <ul class="full-charts__submenu">
+       <li ng-class="{'active':modesDisplayIn == 'cyclesInPercent'}" ng-click="switchModesDisplayInTo('cyclesInPercent')">Циклы, %</li>
+      <li ng-class="{'active':modesDisplayIn == 'cyclesInQt'}" ng-click="switchModesDisplayInTo('cyclesInQt')">Циклы, шт.</li>
+      <li ng-class="{'active':modesDisplayIn == 'timeInPercent'}" ng-click="switchModesDisplayInTo('timeInPercent')">Часы, %</li>
+      <li ng-class="{'active':modesDisplayIn == 'timeInQt'}" ng-click="switchModesDisplayInTo('timeInQt')">Часы, шт</li>
+      </ul>
+    </div>
+
+  </div>
+  
+</div>

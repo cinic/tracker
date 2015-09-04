@@ -1,0 +1,68 @@
+- packet ||= nil
+.row-fluid.filter-block.form-wrapper
+  == form_tag target, method: :get, authenticity_token: false do
+    .row-fluid.input-daterange
+      - if packet
+        .span2
+          .input-prepend
+            span.add-on #
+            = text_field_tag :imei, params[:imei], placeholder: 'IMEI'
+      - else
+        .span2
+          .input-prepend
+            span.add-on #
+            = text_field_tag :device_id, params[:device_id], placeholder: 'Device ID'
+      - if packet
+        .span2
+          .ui-select
+            = select_tag :packet_type,  options_for_select([['Все пакеты', nil], ['85','85'], ['81', '81'], ['810', '810'], ['815', '815'], ['820', '820'] ], params[:packet_type]), {class: 'select js-states form-control'}
+        .span2
+          .input-prepend
+            span.add-on @
+            = text_field_tag :device_id, params[:device_id], placeholder: 'ID'
+      .span2
+        .input-prepend
+          span.add-on с
+          = text_field_tag :start_date, params[:start_date], placeholder: 'дата начала', class: 'start-date'
+      .span2
+        .input-prepend
+          span.add-on по
+          = text_field_tag :end_date, params[:end_date], placeholder: 'дата окончания', class: 'end-date'
+      .span1
+        .ui-select
+          = select_tag :per_page,  options_for_select([ ['по 50',50], ['по 100', 100], ['по 250', 250] ], params[:per_page]), {class: 'select'}
+      .span1 = submit_tag 'Выбрать', class: 'btn btn-primary btn-flat'
+
+
+
+javascript:
+  $(function(){
+    // datepicker plugin
+    //$( '.datepicker' ).datepicker({format: 'dd.mm.yyyy', multidate: true}).on('changeDate', function (ev) {
+    //    $(this).datepicker('hide');
+    //});
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var start_date = $('.start-date').datepicker({
+      format: 'dd.mm.yyyy',
+      onRender: function(date) {
+        return date.valueOf() < now.valueOf() ? 'disabled' : '';
+      }
+    }).on('changeDate', function(ev) {
+      if (ev.date.valueOf() > end_date.date.valueOf()) {
+        var newDate = new Date(ev.date)
+        newDate.setDate(newDate.getDate() + 1);
+        end_date.setValue(newDate);
+      }
+      start_date.hide();
+      $('.end-date')[0].focus();
+    }).data('datepicker');
+    var end_date = $('.end-date').datepicker({
+      format: 'dd.mm.yyyy',
+      onRender: function(date) {
+        return date.valueOf() <= start_date.date.valueOf() ? 'disabled' : '';
+      }
+    }).on('changeDate', function(ev) {
+      end_date.hide();
+    }).data('datepicker');
+  });

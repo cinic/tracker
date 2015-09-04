@@ -1,0 +1,58 @@
+- content_for :title, "Данные устройств"
+- content_for :page_title, "Данные устройств"
+- content_for :page_class, 'form-page'
+.row-fluid.head
+  .span12
+      .btn-group.pull-left
+        = render 'admin/shared/sortable', target: admin_packets_path, packet: true
+.table-wrapper
+  table.table.table-hover
+    thead
+      tr
+        th.span2 Строка
+        th.span3
+          span.line
+          |IMEI
+        th.span3
+          span.line
+          |ID
+        th.span3
+          span.line
+          |Создан
+          br
+          |Изменён
+        th.span3
+          span.line
+          |Тип
+        th.span3
+          span.line
+          |Железо
+        th.span3
+          span.line
+          |Баланс
+        th.span3
+          span.line
+          |Данные
+
+    tbody
+      - @admin_data_devices.each do |admin_data_device|
+        tr
+          td
+            = admin_data_device.id
+            br
+            = link_to 'Удалить', admin_packet_path(admin_data_device.id), data: {confirm: 'Точно?'}, method: :delete
+          td == admin_data_device.imei_substr
+          td == admin_data_device.device_id
+          td
+            = admin_data_device.created_at
+            br
+            = admin_data_device.updated_at
+          td = admin_data_device.type
+          td = admin_data_device.version
+          td = admin_data_device.sim_balance
+          td
+            = text_area_tag :content, admin_data_device.content, cols: 80, rows: 5, style: "width: 240px;", disabled: "disabled"
+.row-fluid = page_entries_info @admin_data_devices
+.row-fluid
+  .pagination.pull-left
+    = paginate @admin_data_devices

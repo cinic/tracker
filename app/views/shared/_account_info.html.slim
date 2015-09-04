@@ -1,0 +1,42 @@
+#accountInfo class="reveal-modal medium" data-reveal="" 
+  h2.modal-title.text-center
+    b Персональные данные: 
+    | редактирование
+  hr
+  form action="#"
+    .row.collapse.fullwidth
+      .large-3.small-12.columns
+        label for="name" Email
+      .large-5.small-12.columns.end
+        input type="text" name="name"
+    .row.collapse.fullwidth
+      .large-3.small-12.columns
+        label for="phone" Телефон
+      .large-1.small-4.columns
+        label.bottom-label.text-center for="coutry"
+          input type="text" name="coutry" id="country"
+          | код страны
+      .large-2.small-4.columns
+        label.bottom-label.text-center for="region"
+          input type="text" name="region" id="region"
+          | код региона
+      .large-2.small-4.columns.end
+        label.bottom-label.text-center for="phone"
+          input type="text" name="phone" id="phone"
+          | телефон
+    .row.collapse.mtm-extra.fullwidth
+      .large-3.small-12.columns
+        label for="name" Имя
+      .large-5.small-12.columns.end
+        input type="text" name="name"
+    .row.collapse.fullwidth
+      .large-3.small-12.columns
+        label for="text" Текст
+      .large-9.small-12.columns
+        textarea#text name="text" cols="30" rows="10" Хочу купить
+    .row.mtm-extra.fullwidth
+      .large-3.large-offset-3.small-12.columns
+        input type="submit" class='button expand upcase' value="Сохранить"
+      .large-3.small-12.columns.end
+        a href="#" class='button expand upcase' Закрыть  
+  a class="close-reveal-modal"

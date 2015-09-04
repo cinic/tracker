@@ -1,0 +1,48 @@
+- content_for :title, "Устройство #{@admin_device.name}"
+- content_for :page_title, "#{@admin_device.name}"
+p#notice = notice
+
+ul
+  li
+    |Владелец: 
+    = @admin_device.user.name
+  li
+    |Статус: 
+    = @admin_device.status
+  li
+    |IMEI: 
+    = @admin_device.imei
+  li
+    |Интервал передачи данных: 
+    = @admin_device.interval
+  li
+    |Количество гнёзд в форме: 
+    = @admin_device.slot_number
+  li
+    |Диапазон нормального цикла: 
+    = @admin_device.normal_cycle
+  li
+    |Расход материала на цикл: 
+    = @admin_device.material_consumption
+  li
+    |Рабочий график: 
+    = @admin_device.schedule
+  li
+    |Показания механического датчика: 
+    = @admin_device.sensor_readings
+      
+= link_to 'Редактировать', edit_admin_device_path(@admin_device)
+'|
+= link_to 'Назад', admin_devices_path
+ul.device-actions
+  li = link_to raw('<i class="fa fa-database"></i> Присвоить пакеты'), admin_device_check_packets_path(@admin_device), {class: 'btn-glow'}
+  li = link_to raw('<i class="fa fa-filter"></i> Перефильтровать пакеты'), admin_device_refilter_packets_path(@admin_device), {class: 'btn-glow'}
+  li
+    = link_to raw('<i class="fa fa-tty"></i> Пересоздать Пинги'), admin_device_refill_pings_path(@admin_device), {class: 'btn-glow'}
+  li = link_to raw('<i class="fa fa-flag"></i> Пересоздать Статусы'), admin_device_refill_states_path(@admin_device), {class: 'btn-glow'}
+  li = link_to raw('<i class="fa fa-clock-o"></i> Пересоздать смыкания'), admin_device_refill_clamps_path(@admin_device), {class: 'btn-glow'}
+  li = link_to raw('<i class="fa fa-arrows-h"></i> Пересоздать длительности'), admin_device_refill_durations_path(@admin_device), {class: 'btn-glow'}
+  li = link_to raw('<i class="fa fa-tasks"></i> Пересоздать типы'), admin_device_refill_types_path(@admin_device), {class: 'btn-glow'}
+  li = link_to raw('<i class="fa fa-refresh"></i> Пересоздать данные'), admin_device_refill_data_path(@admin_device), {class: 'btn-glow'}
+  li = link_to raw('<i class="fa fa-history"></i> Грязные смыкания'), admin_device_bad_clamps_path(@admin_device), {class: 'btn-glow'}
+  li = link_to raw('<i class="fa fa-copy"></i> Дубликаты смыканий'), admin_device_duplicated_clamps_path(@admin_device), {class: 'btn-glow'}

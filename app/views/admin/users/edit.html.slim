@@ -1,0 +1,6 @@
+- content_for :title, "Редактирование пользователя #{@admin_user.id}"
+- content_for :page_title, "Редактирование пользователя #{@admin_user.id}"
+- content_for :page_class, "settings-wrapper"
+
+.personal-info
+  == render 'form'

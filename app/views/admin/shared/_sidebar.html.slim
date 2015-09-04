@@ -1,0 +1,10 @@
+sidebar#sidebar-nav
+  ul#dashboard-menu
+    = li_with_link_to_unles_current_with_class raw('<i class="fa fa-tachometer"></i><span>Дашбоард</span>'), "active", admin_root_path
+    = li_with_link_to_unles_current_with_class raw('<i class="fa fa-hdd-o"></i><span>Устройства</span>'), "active", admin_devices_path
+    = li_with_link_to_unles_current_with_class raw('<i class="fa fa-database"></i><span>Пакеты</span>'), "active", admin_packets_path
+    = li_with_link_to_unles_current_with_class raw('<i class="fa fa-flag"></i><span>Статусы</span>'), "active", admin_states_path
+    = li_with_link_to_unles_current_with_class raw('<i class="fa fa-clock-o"></i><span>Смыкания</span>'), "active", admin_clamps_path
+    = li_with_link_to_unles_current_with_class raw('<i class="fa fa-tty"></i><span>Пинги</span>'), "active", admin_pings_path
+    = li_with_link_to_unles_current_with_class raw('<i class="fa fa-users"></i><span>Пользователи</span>'), "active", admin_users_path
+    = li_with_link_to_unles_current_with_class raw('<i class="fa fa-user-secret"></i><span>Админы</span>'), "active", admin_admins_path

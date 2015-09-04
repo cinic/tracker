@@ -1,0 +1,33 @@
+- content_for :title, "Администраторы"
+- content_for :page_title, "Администраторы"
+- content_for :page_class, "admins"
+
+.table-wrapper
+  table.table.table-hover
+    thead
+      tr
+        th.span1 ID
+        th.span3 Имя
+        th.span3 Email
+        th.span2 Роль
+        th.span3 Действия
+
+    tbody
+      - @admin_admins.each do |admin_admin|
+        tr
+          td = admin_admin.id
+          td = admin_admin.name
+          td = admin_admin.email
+          td 
+            = "Админ" if admin_admin.role == "1"
+            = "Супер админ" if admin_admin.role == "0"
+          td
+            ul.actions
+              li = link_to 'Посмотреть', admin_admin
+              - if superadmin?
+                li = link_to 'Редактировать', edit_admin_admin_path(admin_admin)
+                li = link_to 'Удалить', admin_admin, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'Создать администратора', new_admin_admin_path, class: 'btn-flat primary' if superadmin?

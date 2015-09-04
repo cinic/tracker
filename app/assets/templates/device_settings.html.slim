@@ -1,0 +1,129 @@
+#deviceSettings.Modal-box
+  .close-modal ui-sref="Base"
+  h2.modal-title.text-center
+    b Настройки устройства
+  hr
+  .device-form
+    .errors ng-show="{device.errors}"
+      .error ng-repeat="(key, value) in device.errors"
+        ul.errors-list
+          li ng-repeat="error in value"
+            | {{key}}: {{error}}
+
+    form ng-submit="saveDevice()" name="deviceForm"
+      .device-form__row
+        .device-form__label
+          | Наименование
+        .device-form__inputs
+          input ng-model="device.name" required="" name="name" type="text"/ 
+          span.input__bottom_error ng-show="deviceForm.name.$dirty && deviceForm.name.$invalid"
+            | требуется указать имя устройства
+
+
+      .device-form__row
+        .device-form__label
+          | IMEI
+        .device-form__inputs
+          input ng-model="device.imei" required="" name="imei" type="text"/ 
+          span.input__bottom_error ng-show="deviceForm.imei.$dirty && deviceForm.imei.$invalid"
+            | требуется указать IMEI устройства
+
+      .device-form__row
+        .device-form__label 
+          | Количество гнезд в пресс-форме
+          i class="fa fa-question-circle" tip=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eos culpa, ad odit quibusdam vitae, laboriosam dolorem ratione velit unde."
+        .device-form__inputs
+          .inputs__input_small
+            input ng-model="device.slot_number" required="" name="slot_number" type="text"/
+          .inputs__error ng-show="deviceForm.slot_number.$dirty && deviceForm.slot_number.$invalid"
+            | требуется указать
+
+      .device-form__row
+        .device-form__label
+          | Продолжительность цикла
+          i class="fa fa-question-circle" tip=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eos culpa, ad odit quibusdam vitae, laboriosam dolorem ratione velit unde."
+        .device-form__inputs
+          .inputs__input_small
+            input ng-model="device.normal_cycle.target" type="text"/
+            span.input__help
+              | целевой
+          .inputs__input_small
+            input ng-model="device.normal_cycle.accuracy" type="text"/
+            span.input__help
+              | допустимые отклонения
+          .inputs__info 
+            | Нормоцикл от {{device.normal_cycle.min}} до {{device.normal_cycle.max}} сек
+
+      .device-form__row
+        .device-form__label
+          | Расход материала на один цикл
+        .device-form__inputs
+          .inputs__input_small
+            input ng-model="device.material_consumption" required="" name="material_consumption" type="text"/
+          .inputs__error ng-show="deviceForm.material_consumption.$dirty && deviceForm.material_consumption.$invalid"
+            | требуется указать
+
+      .device-form__row
+        .device-form__label
+          .label__text_long
+            | Показания механического датчика смыканий
+            i class="fa fa-question-circle" tip=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eos culpa, ad odit quibusdam vitae, laboriosam dolorem ratione velit unde."
+          .label__help
+            | Текущее по состоянию на 17.07.2014 в 12:00
+        .device-form__inputs
+          .inputs__input_small
+            input ng-disabled="true" ng-model="device.sensor_readings" type="text"/
+          .inputs__input_medium.with-link
+            | скорректировать
+          .inputs__input_small
+            input type="text"/
+            span.input__help
+              | новое
+
+      .device-form__row
+        .device-form__label
+          .label__text_long
+            | Рабочий график
+            i class="fa fa-question-circle" tip=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eos culpa, ad odit quibusdam vitae, laboriosam dolorem ratione velit unde."
+        .device-form__inputs
+          .inputs__input_half
+            label
+              input ng-model="device.schedule" value="default" type="radio"/
+              | по умолчанию
+              i class="fa fa-question-circle"
+          .inputs__input_half
+            label
+              input ng-model="device.schedule" value="custom" type="radio"/
+              | свой график
+
+      .device-form__row
+        .device-form__label
+          | Периодичность данных
+          i class="fa fa-question-circle" tip=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eos culpa, ad odit quibusdam vitae, laboriosam dolorem ratione velit unde."
+        .device-form__inputs
+          .inputs__input_with-select
+            select ng-model="device.interval"
+              option 1 час
+
+      .device-form__row
+        .device-form__label
+          | Агент
+        .device-form__inputs
+          | Такая-то компания, с таким-то адресом и контактами
+      
+      .device-form__row_buttons
+        .device-form__inputs
+          .inputs__form-btn
+            input type="submit" class="button expand upcase" value="Сохранить" ng-disabled="deviceForm.$invalid"
+          .inputs__form-btn
+            a ui-sref="Base" class="button expand upcase" Закрыть  
+
+
+
+         
+             
+         
+
+      
+    
+    

@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title = yield(:title)
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body.login-bg
+    section.row-fluid.login-wrapper
+      = image_tag "logo-white.png", "width" => "230", "height" => "28", "alt" => "Admin", "class" => "logo"
+      .span4.box
+        .content-wrap
+          = yield
+      - if devise_mapping.registerable? && controller_name != 'registrations'
+        .span4.no-account
+          p Нет аккаунта?
+          = link_to t('views.user.register'), new_registration_path(resource_name)

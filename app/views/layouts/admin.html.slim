@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      = (yield(:title) + " | " unless yield(:title).blank?).to_s + "Zoomator Admin"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    = render "admin/shared/header"
+    = render "admin/shared/sidebar"
+    section.content
+      .container-fluid
+        #pad-wrapper class="#{yield(:page_class)}"
+          - unless yield(:page_title).blank?
+            header.row-fluid.header
+              h1 = yield(:page_title)
+          = yield

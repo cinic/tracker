@@ -1,0 +1,16 @@
+.navbar.navbar-inverse
+  .navbar-inner
+    button type="button" class="btn btn-navbar visible-phone" id="menu-toggler"
+      span.fa.fa-bars
+      span.fa.fa-bars
+      span.fa.fa-bars
+    
+    a.brand href="#{admin_root_url}"
+      = image_tag "logo-white.png", "width" => "171", "height" => "21"
+
+    ul.nav.pull-right
+      li
+        /= link_to current_user.name, user_path if current_user
+      li.settings.hidden-phone
+        a href="/admin/logout" role="button"
+          i.fa.fa-share

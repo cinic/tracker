@@ -1,0 +1,20 @@
+/*
+ *= require_self
+ *= require ./bootstrap/bootstrap
+ *= require ./bootstrap/bootstrap-responsive
+ *= require ./bootstrap/bootstrap-overrides
+ *= require layout
+ *= require elements
+ *= require signin
+ *= require tables
+ *= require user-profile
+ *= require font-awesome
+ *= require form-showcase
+ *= require personal-info
+ * require jquery.ui.core
+ * require jquery.ui.theme
+ * require jquery.ui.resizable
+ * require jquery.ui.slider
+ *= require_tree ./lib/.
+ * require_tree .
+ */

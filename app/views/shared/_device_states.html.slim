@@ -1,0 +1,61 @@
+#deviceStates class="reveal-modal large" data-reveal="" 
+  h2.modal-title.text-center
+    b Состояния устройства
+  hr
+  .row.mtm.fullwidth
+    .large-12.columns
+      table
+        thead
+          tr
+            th 
+              | №
+              =fa_icon "question-circle"
+            th Время сеанса связи
+            th Мех. Датчик
+            th Температура, &deg; С
+            th Состояние батареи, %
+            th Координаты
+        tbody
+          tr
+            td 15
+            td 19.07.2014
+            td 4400
+            td 44
+            td 
+              span.batt-icon
+            td
+              .coords
+                | 55°45′21″ с.ш. 37°37′04″ в.д.
+          tr.active
+            td 15
+            td 19.07.2014
+            td 4400
+            td 44
+            td 
+              span.batt-icon
+            td
+              .coords
+                | 55°45′21″ с.ш. 37°37′04″ в.д.
+          tr.yamap 
+            td colspan="6"
+              .hide-map
+                =fa_icon 'angle-up'
+              #map style="width: 100%; height: 245px"
+                ya-map ya-zoom="8" ya-center="[37.64,55.76]" ya-controls="smallMapDefaultSet"
+          tr
+            td 15
+            td 19.07.2014
+            td 4400
+            td 44
+            td 
+              span.batt-icon
+            td
+              .coords
+                | 55°45′21″ с.ш. 37°37′04″ в.д.
+  
+
+
+  .row.mtm-extra.fullwidth
+    .large-3.large-centered.columns.end
+      a href="#" class='button expand upcase' Закрыть 
+  a class="close-reveal-modal"

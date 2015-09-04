@@ -1,0 +1,16 @@
+<div class="full-charts">
+  <div class="full-chars__header">
+
+     <div class="header__top" ng-include="'charts_header_top.html'"> 
+    </div>
+    
+    <div class="header__bottom">
+      <ul class="full-charts__submenu">
+        <li ng-class="{'active':perfDisplayIn == 'products'}" ng-click="switchPerfDisplayInTo('products')">Изделий</li>
+        <li ng-class="{'active':perfDisplayIn == 'cycles'}" ng-click="switchPerfDisplayInTo('cycles')">Смыканий</li>
+      </ul>
+    </div>
+
+  </div>
+  
+</div>

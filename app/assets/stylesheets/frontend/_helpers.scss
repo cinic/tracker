@@ -1,0 +1,311 @@
+// susy grids
+
+@import "susy";
+
+$susy: (
+  gutter-position: inside,
+  columns: 12,
+);
+
+
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table; 
+    clear: both; 
+  }
+}
+
+$bp-medium: 500px;
+
+
+
+.device-form {
+  @include container;
+}
+
+
+.device-form__row {
+  @include clearfix;
+  margin-bottom: 10px;
+}
+
+.device-form__label {
+  @include span(1 of 1);
+  line-height: 2.2;
+  margin-bottom: 10px;
+  @include susy-breakpoint($bp-medium) {
+    @include span(5 of 12);
+    margin-bottom: 0;
+  }
+}
+
+.device-form__inputs {
+  @include span(1 of 1);
+  @include susy-breakpoint($bp-medium) {
+    @include span(7 of 12);
+  }
+   input[type="text"] {
+    margin: 0;
+  }
+}
+
+.inputs__input_small {
+  @include span(6 of 12 nest);
+  padding-right: 10px;
+  text-align: center;
+  line-height: 2;
+  @include susy-breakpoint($bp-medium) {
+    @include span(3 of 12 nest);
+  }
+}
+
+.inputs__error {
+  @include span(6 of 12 nest);
+  color: #f18d8d;
+  padding: 0 10px;
+  line-height: 2.2;
+  @include susy-breakpoint($bp-medium) {
+    @include span(9 of 12 nest);
+  }
+}
+
+.inputs__info {
+  line-height: 2.2;
+  @include span(1 of 1 nest);
+  @include susy-breakpoint($bp-medium) {
+    @include span(6 of 12 nest);
+  }
+}
+
+.inputs__input_half {
+  @include span(1 of 1 nest);
+  @include susy-breakpoint($bp-medium) {
+    @include span(6 of 12 nest);
+  }
+}
+
+.inputs__input_with-select {
+  @include span(6 of 12 nest);
+  padding-right: 10px;
+  text-align: center;
+  line-height: 2;
+  @include susy-breakpoint($bp-medium) {
+    @include span(5 of 12 nest);
+  }
+}
+
+.inputs__input_medium {
+  @include span(6 of 12 nest);
+  padding-right: 10px;
+  text-align: center;
+  line-height: 2.2;
+  @include susy-breakpoint($bp-medium) {
+    @include span(4 of 12 nest);
+
+  }
+}
+
+.tooltip {
+  z-index: 99999;
+}
+
+.device-form__row_buttons .device-form__inputs {
+   @include pre(5);
+}
+
+.inputs__form-btn {
+  @include span(1 of 2);
+  @include gutters;
+}
+
+.input__bottom_error {
+  color: #f18d8d;
+  font-size: 9px;
+  line-height: 1;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.with-link {
+  color: #6493cc;
+  cursor: pointer;
+}
+
+.input__help, .label__help {
+  font-size: 9px;
+  line-height: 1;
+  display: inline-block;
+  margin-top: 2px;
+  color: #a4a8ae;
+}
+
+.label__text_long {
+  line-height: 1;
+}
+
+
+
+
+$base-space-unit: 1.5em;
+
+.full-min-height { min-height: 74% }
+
+.ell { overflow: hidden }
+.clear { clear: both }
+
+.glassy-bg { background-color: rgba(43, 50, 63, 0.9) }
+.primary-bg { background-color: #B18806}
+
+
+// Displays
+.block { display: block }
+.inline-block { display: inline-block }
+
+
+.radius-box {
+  border-radius: 10px;
+}
+
+.radius-ls {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.radius-rs {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.radius-l1 {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.radius-r1 {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+// Margin helpers
+.m0            { margin: 0 }
+.mt0           { margin-top: 0 }
+.mr0           { margin-right: 0 }
+.mb0           { margin-bottom: 0 }
+.ml0           { margin-left: 0 }
+
+.ms            { margin: .5em }
+.mts           { margin-top: .5em }
+.mbs           { margin-bottom: .5em }
+.mrs           { margin-right: .5em }
+.mls           { margin-left: .5em }
+
+.mm            { margin: 1.5em }
+.mtm           { margin-top: 1.5em }
+.mbm           { margin-bottom: 1.5em }
+.mrm           { margin-right: 1.5em }
+.mlm           { margin-left: 1.5em }
+
+.m1            { margin: $base-space-unit }
+.mt1           { margin-top: $base-space-unit }
+.mb1           { margin-bottom: $base-space-unit }
+.mr1           { margin-right: $base-space-unit }
+.ml1           { margin-left: $base-space-unit }
+
+.m2            { margin: $base-space-unit*2 }
+.mt2           { margin-top: $base-space-unit*2 }
+.mb2           { margin-bottom: $base-space-unit*2 }
+.mr2           { margin-right: $base-space-unit*2 }
+.ml2           { margin-left: $base-space-unit*2 }
+
+// Padding helpers
+.p0            { padding: 0 }
+.pt0           { padding-top: 0 }
+.pr0           { padding-right: 0 }
+.pb0           { padding-bottom: 0 }
+.pl0           { padding-left: 0 }
+
+.ps            { padding: .25em }
+.pts           { padding-top: .25em }
+.pbs           { padding-bottom: .25em }
+.prs           { padding-right: .25em }
+.pls           { padding-left: .25em }
+
+.pm            { padding: .5em }
+.ptm           { padding-top: .5em }
+.pbm           { padding-bottom: .5em }
+.prm           { padding-right: .5em }
+.plm           { padding-left: .5em }
+
+.p1            { padding: 1em }
+.pt1           { padding-top: 1em }
+.pr1           { padding-right: 1em }
+.pb1           { padding-bottom: 1em }
+.pl1           { padding-left: 1em }
+
+.p2            { padding: 1em*2 }
+.pt2           { padding-top: 1em*2 }
+.pr2           { padding-right: 1em*2 }
+.pb2           { padding-bottom: 1em*2 }
+.pl2           { padding-left: 1em*2 }
+
+// Padding small
+.pads           { padding: .25em }
+
+// Padding medium
+.padm           { padding: .5em }
+
+// Padding large
+.padl           { padding: 1em }
+
+// Padding small left :: right
+.padsx {
+ padding-left: .25em;
+ padding-right: .25em;
+}
+
+// Padding medium left :: right
+.padmx {
+ padding-left: .5em;
+ padding-right: .5em;
+}
+
+// Padding large left :: right
+.padlx {
+ padding-left: 1em;
+ padding-right: 1em;
+}
+
+// Padding small top :: bottom
+.padsy {
+ padding-top: .25em;
+ padding-bottom: .25em;
+}
+
+// Padding medium top :: bottom
+.padmy {
+ padding-top: .5em;
+ padding-bottom: .5em;
+}
+
+// Padding large top :: bottom
+.padly {
+ padding-top: 1em;
+ padding-bottom: 1em;
+}
+.mtm-extra {
+  margin-top: 20px !important;
+}
+
+.upcase {
+  text-transform: uppercase;
+}
+
+.fullwidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
+
+.text-red {
+  color: red;
+}

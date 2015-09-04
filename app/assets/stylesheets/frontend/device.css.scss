@@ -1,0 +1,295 @@
+input.ng-dirty.ng-invalid {
+  border: 1px solid red !important;
+  color: red;
+}
+
+
+.error small.error {
+  color: #fff !important;
+}
+
+.button.large.expand.add-device {
+  height: 60px;
+}
+
+.charts-container {
+  margin: 0 12px;
+}
+
+.gis-data {
+  color: #9bb9de;
+}
+
+.close-map {
+  position: absolute;
+  width: 68px;
+  height: 27px;
+  display: block;
+  z-index: 1000;
+  right: 95px;
+  top: 20px;
+  background: #9ba4b3;
+  color: #fff;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.yamap td {
+  position: relative;
+}
+
+.label-text {
+    alignment-baseline: middle;
+    font-size: 18px;
+    font-family: arial,helvetica,"sans-serif";
+    fill: #393939;
+}
+.label-line {
+    stroke-width: 1;
+    stroke: #9ba4b3;
+}
+.label-circle {
+    fill: #9ba4b3;
+}
+
+.device {
+
+  margin-bottom: 30px;
+
+  .device-icons {
+    width: 20%;
+    display: block;
+    float: left;
+    li {
+      list-style: none;
+    }
+  }
+  .device-data {
+    width: 80%;
+    display: block;
+    float: left;
+  }
+
+  .device-name {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #598bc8;
+    a {
+      color: #598bc8;
+    }
+    a:hover {
+      // color: #598bc8;
+      border-bottom: 1px dotted #598bc8;
+    }
+  }
+
+  .device-num:hover, .device-num.hovered {
+    background: image-url("ico_circle_gear.png") center no-repeat;
+    text-indent: -9999px;
+    background-size: 100%;
+  }
+
+  .device-num {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: #bec1c6;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    line-height: 1.4;
+    margin-left: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+}
+
+.timeline-nav-detail {
+  // height: 285px;
+  width: 100%;
+  background: #f7f6f6;
+  margin-top: -25px;
+  padding: 0 25px 20px 25px
+}
+.timeline-title {
+  margin-top: 20px;
+  margin-left: 20px;
+  float: left;
+}
+
+.timeline-header {
+  height: 50px;
+  position: relative;
+  margin-top: 25px;
+  display: block;
+  width: 100%;
+  h1 {
+    // font-weight: bold;
+    font-size: 22px;
+  }
+
+}
+
+.device-info {
+  ul {
+    margin: 0 0 0 20px;
+    margin-top: 10px;
+    li {
+      list-style: none;
+      display: inline-block;
+      margin-right: 20px;
+    }
+  }
+}
+
+.timeline-icons {
+  position: relative;
+  .device-num {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: #bec1c6;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    line-height: 1.4;
+    margin-left: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  .device-num:hover {
+    background: #76b7e4;
+  }
+  a {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    top: 22px;
+  }
+  .device-states {
+    right: 80px;
+  }
+  .device-close {
+    right: 20px;
+  }
+  .device-settings {
+    right: 50px;
+  }
+}
+
+#deviceStates {
+  td {
+    text-align: center;
+  }
+  tr.active {
+    background: #9ba4b3;
+    td {
+      color: #fff;
+    }
+  }
+  #map {
+    background: #f4f4f5;
+  }
+  th {
+    text-align: center;
+    .fa {
+      margin-left: 5px;
+      color: #76b7e4;
+    }
+  }
+  .hide-map {
+    background: #9ba4b3;
+    width: 31px;
+    height: 31px;
+    display:  inline-block;
+    position: absolute;
+    right: 24px;
+    .fa {
+      color: #fff;
+      font-weight: bold;
+      margin-top: 8px;
+      margin-left: 2px;
+    }
+  }
+}
+
+.device-states-ico {
+  width: 24px;
+  height: 25px;
+  display: inline-block;
+  position: absolute;
+  background: image-url("ico_device_states.png") center no-repeat;
+}
+.device-settings-ico {
+  width: 24px;
+  height: 25px;
+  display: inline-block;
+  position: absolute;
+  background: image-url("ico_device_settings.png") center no-repeat;
+}
+
+.device-close-ico {
+  width: 24px;
+  height: 25px;
+  display: inline-block;
+  position: absolute;
+  background: image-url("ico_device_close.png") center no-repeat;
+}
+
+.ico-device-type {
+  background: image-url("ico_device_type.png") center no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  margin-right: 5px;
+  margin-bottom: -1px;
+}
+
+.ico-device-dr {
+  background: image-url("ico_device_dr.png") center no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  margin-right: 5px;
+  margin-bottom: -1px;
+}
+.ico-device-next-conn {
+  background: image-url("ico_device_nextconn.png") center no-repeat;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  margin-right: 5px;
+  margin-bottom: -1px;
+}
+
+#deviceSettings {
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+  label {
+    // float: left;
+    color: #5f6775;
+  }
+  small {font-size: 10px; color: #a4a8ae;}
+  .fa {
+    // float:left;
+    margin-left: 5px;
+    color: #76b7e4;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+  .link-correct {
+    display: inline-block;
+    margin-top: 5px;
+    color: #76b7e4;
+  }
+}

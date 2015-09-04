@@ -1,0 +1,78 @@
+-content_for :modals do 
+  =render 'shared/legend'
+  =render 'shared/scroll_nav_multi'
+  
+
+.ng-container ng-cloak="" ng-controller="DevicesController"
+  .timeline-nav
+    .row.fullwidth
+      .large-4.small-4.columns
+        datetime-range
+      .large-8.small-8.columns
+        .sc-header
+          timeline-menu selected-period="selectedPeriod"
+          zoom start="selectedPeriod.startDatetime" end="selectedPeriod.endDatetime" max="{{fullPeriod.endDatetime}}" min="{{fullPeriod.startDatetime}}"
+        timeline selected-period-begin="selectedPeriod.startDatetime" selected-period-end="selectedPeriod.endDatetime" full-period-begin="fullPeriod.startDatetime" full-period-end="fullPeriod.endDatetime" icons-path="#{asset_path 'svg_controls/timeline_icons.svg'}" marker-datetime="markerDatetime" marker-position="markerPosition"
+        
+   
+  .devices-area
+  
+    .device ng-repeat="device in devices"
+      .row.fullwidth 
+        .large-4.small-4.columns.clearfix
+          .device-icons
+            ul
+              li
+                a ui-sref="Modal.deviceSettings({ deviceId: device.id })"
+                  span.device-num ng-class="{ 'hovered' : hovered }"
+                    | {{$index + 1}}
+              li
+                batt v-batt="{{device.state.v_batt}}"
+          .device-data
+            .device-name
+              a href="/devices/{{device.id}}" ng-mouseover="hovered = true" ng-mouseleave="hovered = false"
+                | {{device.name}}
+            .device-type
+              | Тип: ТПА
+            .device-status
+              | Данные получены: {{device.state.datetime | date: "dd.MM.yyyy"}} в {{device.state.datetime | date: "HH:mm"}}
+
+        .large-8.small-8.columns.charts ng-if="device.status == 'confirmed'"
+
+          chronograph2 intervals="device.intervals" start="{{selectedPeriod.startDatetime}}" end="{{selectedPeriod.endDatetime}}" marker-position="{{markerPosition}}" class="chron" marker-datetime="{{markerDatetime}}" zoom-color="zoomColors[$index]" did="{{device.id}}"
+
+        .large-8.small-8.columns.charts ng-if="device.status != 'confirmed'"
+
+          .unconfirmed-device style="z-index:0;" 
+            .unconfirmed-device__message Заявка находится на рассмотрении       
+    
+    .new-device
+    .row.fullwidth.device
+      .large-4.small-4.columns
+        .add-device
+          a.button.large.expand.add-device ui-sref="Modal.deviceSettings"
+            =fa_icon 'plus'
+            | Добавить новое
+      .large-8.small-8.columns.charts.charts--newdevice
+        .new-device-form
+          form
+            .row.fullwidth
+
+  // modals
+
+  / datetimepicker modal
+  datetime-picker ng-show="datetimePicker.show"
+  marker marker-position="markerPosition" marker-datetime="markerDatetime" marker-height="markerHeight" zoom-colors="zoomColors"
+
+
+
+  / statefull modals with ui-router
+div ui-view="modal" autoscroll="false"
+
+
+
+
+   
+
+
+

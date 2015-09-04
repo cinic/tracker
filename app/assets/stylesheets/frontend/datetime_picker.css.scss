@@ -1,0 +1,179 @@
+.datetime-picker {
+  width: 250px;
+  min-height: 450px;
+  position: absolute;
+  background: #fff;
+  z-index: 9999;
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+
+}
+
+.datetime-range__period-start, .datetime-range__period-end {
+  cursor: pointer;
+}
+
+.datetime-picker__header {
+  height: 50px;
+  background: #f1efef;
+  padding: 10px 20px;
+  .header__title {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 18px;
+  }
+  .header__close-btn {
+    background: image-url('btn_close.png') no-repeat center;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+
+.body__calendar {
+  padding-bottom: 20px;
+  border-bottom: 1px dotted #bcbfc4;
+}
+
+.calendar__day {
+  list-style: none;
+  float: left;
+  background: #f3f5f6;
+  width: 25px;
+  text-align: center;
+  margin-right: 2px;
+  margin-bottom: 2px; 
+  height: 25px;
+  line-height: 2.1;
+}
+
+
+
+.hol {
+  background: #e2e4e6;
+}
+
+.selected-day {
+  background: #9ba4b3 !important;
+  color: #fff;
+}
+
+.datetime-picker__body {
+  padding: 15px 25px;
+  text-align: center;
+  ul {
+    margin: 0;
+  }
+}
+
+
+.calendar__dayname {
+  padding: 1px;
+  list-style: none;
+  float: left;
+  // background: #f3f5f6;
+  width: 25px;
+  text-align: center;
+  margin-right: 2px;
+  margin-bottom: 2px; 
+  height: 25px;
+  line-height: 2.1;
+  background: #bcbfc4;
+  color: #fff;
+}
+
+.years__year {
+  list-style: none;
+  float: left;
+  line-height: 1.9;
+  padding: 0 7px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+// years
+
+.selected-year {
+  background: #9ba4b3;
+  color: #fff;
+}
+
+.body__years {
+  text-align: center;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px dotted #bcbfc4;
+
+  ul {
+    width: 135px;
+  }
+}
+
+.body__years__element, .monthname__element {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.years__list-backward, .monthname__list-backward {
+  background: image-url('backward_btn.png') no-repeat center;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
+
+.years__list-forward, .monthname__list-forward {
+  background: image-url('forward_btn.png') no-repeat center;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
+
+// selected datetime - month 
+
+.calendar__monthname {
+  text-transform: uppercase;
+  font-size: 14px;
+  // font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.monthname__text {
+  width: 134px;
+}
+
+// days
+
+.calendar__day {
+  cursor: pointer;
+}
+
+
+// time
+
+.body__time {
+  padding-top: 20px;
+}
+
+.time__inner {
+  width: 140px;
+  margin: 0 auto;
+}
+
+.time__inner > div {
+  width: 55px;
+  // float: left;
+  display: inline-block;
+}
+
+.time__hours {
+  margin-right: 5px;
+}
+
+.time__mins {
+  margin-left: 5px;
+}

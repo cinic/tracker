@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    title Zoomator
+    = stylesheet_link_tag    'frontend'
+    = javascript_include_tag 'frontend'
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
+  body ng-app="Zoomator"
+    =render 'layouts/header'
+           
+  
+    .main-content
+      =yield
+    .footer
+      .row.fullwidth
+        .large-3.small-12.columns
+          .footer-logo
+            a href="http://toplast.ru/"
+              = uri_image "pth.svg", class: 'logo-firm-hor'
+        .large-6.small-12.columns
+          .cp
+            | © Copyright 2014. Дистанционный мониторинг. Все права защищены. Условия использования информации или еще какая информация о правилах сервиса
+        .large-3.small-12z.columns
+    =yield :js
+    =yield :modals

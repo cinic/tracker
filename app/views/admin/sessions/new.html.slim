@@ -1,0 +1,16 @@
+.span4.box
+  .content-wrap
+    h2 Zoomator Авторизация
+
+    - if !flash.alert.nil?
+      div.alert
+        = flash.alert
+    = form_tag admin_new_session_path do
+      div.field
+          = label_tag :email
+          = email_field_tag :email, params[:email], class: "span12", placeholder: "E-mail адрес"
+      div.field
+        = label_tag :password
+        = password_field_tag :password, "", class: "span12", placeholder: "Ваш пароль"
+      div.actions
+        = submit_tag "Войти", class: "btn-glow primary login"

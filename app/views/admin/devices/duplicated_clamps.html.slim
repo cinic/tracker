@@ -1,0 +1,13 @@
+- content_for :title, "Устройство #{@admin_device.name}"
+- content_for :page_title, "Устройство #{@admin_device.name}"
+p#notice = notice
+
+- if @duplicated_clamps.size > 0
+  .group
+    - @duplicated_clamps.each do |item|
+      h5 = item[0]
+      ul
+        - item[1].each do |value|
+          li = value
+- else
+  p.notice Дубликаты не найдены.

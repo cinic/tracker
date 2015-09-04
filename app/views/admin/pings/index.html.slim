@@ -1,0 +1,27 @@
+- content_for :title, "Данные о пингах"
+- content_for :page_title, "Данные о пингах"
+- content_for :page_class, 'form-page'
+.row-fluid.head
+  .span12
+      h4
+        = "#{yield(:page_title)}"
+        .btn-group.pull-right
+          = render 'admin/shared/sortable', target: admin_pings_path
+- @admin_operational_data_devices.each do |admin_operational_data_device|
+  .row-fluid
+    .span12
+      ul
+        li
+          |#Device ID:&nbsp;
+          = admin_operational_data_device.device_id
+        li
+          |#Данные пришли:&nbsp;
+          = admin_operational_data_device.ping_was
+          br
+          |#Данные придут:&nbsp;
+          = admin_operational_data_device.ping_will
+          |&nbsp;&nbsp;
+.row-fluid = page_entries_info @admin_operational_data_devices
+.row-fluid
+  .pagination.pull-left
+    = paginate @admin_operational_data_devices

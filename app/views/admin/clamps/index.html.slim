@@ -1,0 +1,38 @@
+- content_for :title, "Данные о смыканиях"
+- content_for :page_title, "Данные о смыканиях"
+- content_for :page_class, 'form-page'
+.row-fluid.head
+  .span12
+      h4
+        = "#{yield(:page_title)}"
+        .btn-group.pull-right
+          = render 'admin/shared/sortable', target: admin_clamps_path
+- @admin_operational_data_devices.each do |admin_operational_data_device|
+  .row-fluid
+    .span12
+      ul
+        li
+          b Время:&nbsp;
+          = l(admin_operational_data_device.time, format: :default) unless admin_operational_data_device.time.nil?
+        li
+          b Тип:&nbsp;
+          = admin_operational_data_device.type
+        li
+          b Продолжительность:&nbsp;
+          = admin_operational_data_device.duration
+        li
+          b ID пакета: 
+          = admin_operational_data_device.packet_id
+          |,&nbsp;
+          b ID устройства: 
+          = admin_operational_data_device.device_id
+        li
+          b Создано: 
+          = admin_operational_data_device.created_at
+          |,&nbsp;
+          b Обновлено: 
+          = admin_operational_data_device.updated_at
+.row-fluid = page_entries_info @admin_operational_data_devices
+.row-fluid
+  .pagination.pull-left
+    = paginate @admin_operational_data_devices

@@ -1,0 +1,210 @@
+.zposition {
+  width: 2px;
+  height: 12px;
+  position: absolute;
+  background: #5f6775;
+  top: 2px;
+}
+
+#drag_left, #drag_right {
+  fill: #fff;
+  stroke: #76b7e4;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.new-device-form {
+  background: #d7d5d5;
+  height: 60px;
+  padding: 15px;
+  label {
+    color: #5f6775;
+    width: 20%;
+    line-height: 2.5;
+  }
+  input {
+    width: 70%;
+    padding: 14px;
+  }
+  label, input {
+    float: left;
+  }
+}
+
+.d3-tip {
+  z-index: 9999;
+}
+
+
+.chron svg {
+  background: #d7d5d5;
+}
+
+.sc-zoom {
+  float: right;
+  margin-top: 10px;
+  width: 100px;
+  position: relative;
+}
+
+.zscale {
+  width: 50px;
+   display: inline-block;
+   background: image-url('zoom_scale.png') no-repeat center;
+   height: 15px;
+   position: relative;
+}
+
+.zminus {
+  background: image-url('zoom_minus.png') no-repeat center;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.zplus {
+  background: image-url('zoom_plus.png') no-repeat center;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.charts svg {
+  // margin-top: 40px;
+}
+
+.chronograph {
+  position: absolute;
+  z-index: 1000;
+  display: block;
+}
+
+.timeline-nav {
+  .datetime-range {
+    margin: 30px auto 0 auto;
+    width: 175px;
+    position: relative;
+    display: block;
+    div {
+      display: inline-block;
+      margin-top: 45px;
+    }
+    ul {
+      margin: 0;
+    }
+    li {
+      text-align: center;
+      width: 60px;
+      list-style: none;
+      li {
+        line-height: 1.6;
+      }
+    }
+  }
+  .sc-header {
+    height: 45px;
+    ul {
+      li {
+        list-style: none;
+        float: left;
+        font-size: 13px;
+        padding: 5px 10px;
+        display: block;
+        a {
+          border-bottom: 1px dotted #5f6775;
+        }
+
+      }
+      li.active {
+        background: #9ba4b3;
+        a {
+          color: #fff;
+          border-bottom: none;
+        }
+
+      }
+      li:hover {
+        background: #e5e8eb;
+      }
+    }
+  }
+}
+
+.marker__inner {
+  z-index: -1;
+}
+
+.t_axis {
+  stroke: #c3c1c1;
+  stroke-width: 2;
+}
+
+.b_axis {
+  stroke: #76b7e4;
+  stroke-width:4;
+}
+
+.r_border, .l_border {
+  stroke: #76b7e4;
+  stroke-width:2;
+}
+
+.tr_border, .tl_border {
+  stroke: #76b7e4;
+  stroke-width:1;
+}
+
+.r_c_ctrl {
+  fill: '#76b7e4';
+}
+
+.l_range_mover {
+  stroke: #c3c1c1;
+  stroke-width: 2;
+}
+
+.l_range_mover, .r_range_mover {
+  cursor: pointer;
+  stroke: #c3c1c1;
+  stroke-width: 2;
+}
+
+.range_selector {
+  fill: #76b7e4;
+}
+
+.t_mark {
+  stroke: #c3c1c1;
+  stroke-width: 1;
+}
+
+.b_mark {
+  stroke: #76b7e4;
+  stroke-width: 1;
+}
+
+.l_claw, .r_claw {
+  fill: #fff;
+  stroke: #76b7e4;
+  stroke-width: 1;
+  cursor: pointer;
+}
+
+.zmr {
+  fill: #76b7e4;
+  cursor: pointer;
+}
+
+.axis_labels {
+  fill: #c3c1c1;
+  font-size: 10px;
+}
+
+.bt_axis_labels {
+  fill: #76b7e4;
+  font-size: 10px;
+}
