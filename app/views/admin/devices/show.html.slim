@@ -20,7 +20,10 @@ ul
     = @admin_device.slot_number
   li
     |Диапазон нормального цикла: 
-    = @admin_device.normal_cycle
+    = @admin_device.min_cycle
+    |&nbsp;–&nbsp;
+    = @admin_device.max_cycle
+    |&nbsp;сек.
   li
     |Расход материала на цикл: 
     = @admin_device.material_consumption

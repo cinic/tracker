@@ -15,6 +15,8 @@ module Paginate
     ) if !start_date.nil? && !end_date.nil?
     klass = klass.where(type: packet_type) if packet_type
     klass = klass.where(device_id: filter_id) unless filter_id.nil?
+    klass = klass.where(id: order_id) unless order_id.nil?
+    klass = klass.where(id: ticket_id) unless ticket_id.nil?
     klass = klass.where(imei_substr: filter_imei) unless filter_imei.nil?
     klass.page(page).per(per_page)
   end
@@ -32,6 +34,22 @@ module Paginate
       nil
     else
       params[:device_id]
+    end
+  end
+
+  def order_id
+    if params[:order_id].nil? || params[:order_id] == ''
+      nil
+    else
+      params[:order_id]
+    end
+  end
+
+  def ticket_id
+    if params[:ticket_id].nil? || params[:ticket_id] == ''
+      nil
+    else
+      params[:ticket_id]
     end
   end
 

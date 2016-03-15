@@ -1,0 +1,10 @@
+- query = { end_date: params['end_date'], start_date: params['start_date'] }
+.mdl-grid
+  .mdl-cell.mdl-cell--12-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone
+    nav.device-stat-nav
+      ul
+        li = link_to t('stats.menu.modes'), device_modes_path(query), class: (action_name == 'modes' ? 'is-active' : '')
+        li = link_to t('stats.menu.performance'), device_perfomance_path(query), class: (action_name == 'perfomance' ? 'is-active' : '')
+        li = link_to t('stats.menu.times'), device_times_path(query), class: (action_name == 'times' ? 'is-active' : '')
+        li = link_to t('stats.menu.material_consumption'), device_material_consumption_path(query), class: (action_name == 'material_consumption' ? 'is-active' : '')
+        li = link_to t('stats.menu.short'), device_path(query), class: 'link-to-mini'

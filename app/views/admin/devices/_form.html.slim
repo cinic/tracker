@@ -13,9 +13,12 @@
   .field-box
     = f.label :slot_number, 'Количество гнёзд в форме'
     = f.text_field :slot_number, class: 'span8 inline-input'
-  .field-box
-    = f.label :normal_cycle, 'Диапазон нормального цикла'
-    = f.text_field :normal_cycle, class: 'span8 inline-input'
+  .field-box.field-inline
+    = f.label 'Диапазон нормального цикла'
+    span Минимальный
+    = f.text_field :min_cycle, class: 'span1 inline-input'
+    span Максимальный
+    = f.text_field :max_cycle, class: 'span1 inline-input'
   .field-box
     = f.label :material_consumption, 'Расход материала на цикл'
     = f.text_field :material_consumption, class: 'span8 inline-input'
@@ -27,7 +30,7 @@
     = f.text_field :schedule, class: 'span8 inline-input'
   .field-box
     = f.label :interval, 'Интервал передачи данных'
-    = f.text_field :interval, class: 'span8 inline-input'
+    .ui-select = f.select(:interval, Device::DATA_TRANSFER_FREQUENCY, {selected: @admin_device.interval || 2}, {class: 'ui-select'})
   .field-box
     = f.label :imei, 'Серийный номер, IMEI'
     = f.text_field :imei, class: 'span8 inline-input'

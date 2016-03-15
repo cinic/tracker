@@ -1,26 +1,201 @@
 en:
-  time:
-    formats:
-      default: "%m.%d.%Y %H:%M"
-      short: "%H:%M"
-      notime: "%m.%d.%Y"
+  activerecord:
+    attributes:
+      user:                                                  # Личный кабинет
+        name: 'Имя Фамилия'
+        password: 'Пароль'
+        email: 'Email'
+        company: 'Компания'
+        reset_password_token: 'Токен для сброса пароля'
+        confirmation_token: 'Токен для подтверждения email'
+        banned: 'Аккаунт заблокирован.'
+      device:                                                # Настройки устройства
+        name: 'Название пресс-формы'
+        imei: 'Серийный номер, IMEI'
+        interval: 'Интервал передачи данных'
+        material_consumption: 'Расход материала на один цикл, кг'
+        normal_cycle: 'Диапазон нормального цикла'
+        min_cycle: 'Минимальный нормо цикл'
+        max_cycle: 'Максимальный нормо цикл'
+        slot_number: 'Количество гнёзд в форме'
+        schedule: 'Рабочий график'
+        sensor_readings: 'Показания механического датчика'
+        description: 'Комментарий'
+      order:
+        name: 'Имя'
+        contact: 'Телефон или email'
+        comment: 'Комментарий'
+        status: 'Статус'
+        submit: 'Заказать'
+      ticket:
+        name: 'Имя'
+        user: 'Пользователь'
+        email: 'E-mail'
+        subject: 'Тема'
+        device: 'Пресс-форма'
+        device_null: 'Иная проблема'
+        text: 'Сообщение'
+        close: 'Закрыт'
+        open: 'Открыт'
+        submit: 'Создать сообщение'
+    errors:
+      models:
+        user:                                                # Ошибки при заполнении личного кабинета
+          attributes:
+            email:
+              taken: 'уже зарегистрирован.'
+              not_found: 'не найден, возможно регистрировались на другой?'
+              blank: 'необходимо заполнить.'
+            password:
+              blank: 'необходимо заполнить'
+            name:
+              blank: 'необходимо заполнить'
+            company:
+              blank: 'необходимо заполнить'
+            reset_password_token:
+              blank: 'не может быть пустым'
+            confirmation_token:
+              blank: 'не может быть пустым'
+        device:                                               # Ошибки при заполнении настроек устройства
+          blank: 'необходимо заполнить'
+          attributes:
+            imei:
+              wrong_length: 'должен состоять из 15 цифр'
+              invalid: 'должен содержать только цифры'
+              taken: 'уже существует'
+            slot_number:
+              less_than_or_equal_to: 'максимальное значение 200'
+              not_a_number: 'должно состоять из цифр'
+            material_consumption:
+              not_a_number: 'должно состоять из цифр и быть больше 0'
+              greater_than: 'должно быть больше 0'
+            sensor_readings:
+              not_a_number: 'должно быть натуральным числом'
+        order:
+          inclusion: 'должен быть из списка'
+      messages:
+        record_invalid: 'Неверная запись'
   views:
-    pagination:
-      first: "&laquo; First"
-      last: "Last &raquo;"
-      previous: "&lsaquo; Prev"
-      next: "Next &rsaquo;"
+    dashboard:
+      title: 'Общий мониторинг'
+    user:                                                    # Действия с личным кабинетом
+      change_password: 'Изменить пароль'
+      send_instructions_again: 'Отправить инструкцию повторно'
+      send_password_instructions: 'Отправить инструкцию'
+      password_reset_title: 'Восстановление пароля'
+      password_reset_title2: 'Изменение пароля'
+      password_length:
+        one:   "минимум %{count} символ"
+        few:   "минимум %{count} символа"
+        many:  "минимум %{count} символов"
+        other: "минимум %{count} символа"
+      authorization_title: 'Авторизация'
+      authorize: 'Войти'
+      remember_me: 'Запомнить меня'
+      registration_title: 'Регистрация'
+      register: 'Зарегистрироваться'
+      forgot_password?: 'Забыли пароль?'
+      not_receive_letter?: 'Не получили письмо с инструкцией?'
+      user_successfully_updated: 'Профиль обновлён.'
+    device:                                                  # Действия с настройками устройств
+      add_device: 'Добавить эту пресс-форму'
+      save_device: 'Сохранить'
+      device_successfully_added: 'Пресс-форма добавлена и отправлена на проверку.'
+      device_successfully_updated: 'Параметры пресс-формы обновлены.'
+      data_received: 'Данные получены'
+      new: 'На проверке у менеджера.'
+      confirmed: 'Подтверждено'
+      rejected: 'Отклонено'
+    order:
+      successfully_updated: 'Статус заказа обновлен.'
+      successfully_added: 'Заказ размещён. В ближайшее время с вами свяжется менеджер.'
+      status:
+        new: 'Новый'
+        in_progress: 'В процессе'
+        done: 'Выполнен'
+        cancelled: 'Отменён'
+    ticket:
+      successfully_updated: 'Тикет обновлен.'
+      successfully_added: 'Запрос размещён. В ближайшее время вам ответит менеджер.'
+      list: 'Список обращений'
+    pagination:                                              # Пагинаторы
+      first: "&lsaquo;"
+      last: "&rsaquo;"
+      previous: "&lsaquo; предыдущая"
+      next: "следующая &rsaquo;"
       truncate: "&hellip;"
   helpers:
     page_entries_info:
       one_page:
         display_entries:
-          zero: "No %{entry_name} found"
-          one: "Displaying <b>1</b> %{entry_name}"
-          other: "Displaying <b>all %{count}</b> %{entry_name}"
+          zero: "Записей не найдено."
+          one: "Показана <b>1</b> запись."
+          few: "Показаны <b>все %{count}</b> записи."
+          many: "Показаны <b>все %{count}</b> записей."
+          other: "Показаны <b>все %{count}</b> записи."
       more_pages:
-        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+        display_entries: "Показано <b>%{first}&nbsp;–&nbsp;%{last}</b> из <b>%{total}</b> записей."
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%M:%S"
+      short: "%H:%M"
+      notime: "%d.%m.%Y"
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [Воскресенье, Понедельник, Вторник, Среда, Четверг, Пятница, Суббота]
+    abbr_day_names: [Вс, Пн, Вт, Ср, Чт, Пт, Сб]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
+    abbr_month_names: [~, Янв, Фев, Мар, Апр, Мая, Июн, Июл, Авг, Сен, Окт, Нов, Дек]
+    # Used in date_select and datetime_select.
+    order:
+      - year
+      - month
+      - day
+  datetime:
+    distance_in_words:
+      x_minutes:
+        one:   "%{count} минута"
+        few:   "%{count} минуты"
+        many:  "%{count} минут"
+        other: "%{count} минуты"
+      x_hours:
+        one: "%{count} час"
+        few: "%{count} часа"
+        many: "%{count} часов"
+        other: "%{count} часа"
   api:
     errors:
       graph:
         no_date: 'Необходимо выбрать дату'
+    device:                                                 # Наименования показателей
+      modes:
+        acl: 'Работа в ускоренном цикле'
+        fail: 'Работа со сбоями цикла'
+        idle: 'Простой'
+        norm: 'Работа в нормоцикле'
+      perfomance:
+        total: 'Фактически'
+        fail: 'Потери от сбоев'
+        idle: 'Потери от простоев'
+      times:
+        norm: 'Среднее в нормоцикле'
+        acl_fail_norm: 'Среднее со сбоями и ускорениями'
+        goal: 'Целевое'
+      consumption:
+        total: 'Фактический'
+      summary_table:
+        total: 'За весь период'
+      no_data: 'Нет данных'
+      tabs:
+        cycle_percent: 'Циклы, %'
+        cycle_pcs: 'Циклы, шт'
+        time_percent: 'Часы, %'
+        time_seconds: 'Часы, шт'
+        products: 'Изделий'
+        clamps: 'Смыканий'

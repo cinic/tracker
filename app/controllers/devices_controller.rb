@@ -1,29 +1,32 @@
 class DevicesController < ApplicationController
-  before_action :set_device, only: [:show, :edit, :update, :destroy]
+  before_action :device, only: [:states, :edit, :update, :destroy]
+  before_action :api_device, only: [:show, :modes, :perfomance, :times,
+                                    :material_consumption]
 
-  # GET /devices
-  # GET /devices.json
-  def index
-    @devices = current_user.devices
+  def index; end
+
+  def show; end
+
+  def modes; end
+
+  def perfomance; end
+
+  def times; end
+
+  def material_consumption; end
+
+  def states
+    @states = @device.states.limit(10).order(datetime: :desc)
   end
 
-  # GET /devices/1
-  # GET /devices/1.json
-  def show
-
-  end
-
-  # GET /devices/new
   def new
     @device = Device.new
   end
 
-  # GET /devices/1/edit
   def edit
+    cookies[:referrer] = request.referrer
   end
 
-  # POST /devices
-  # POST /devices.json
   def create
     @device = Device.new(device_params)
     @device.user_id = current_user.id
@@ -38,13 +41,13 @@ class DevicesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /devices/1
-  # PATCH/PUT /devices/1.json
   def update
     device_params.delete('imei')
+    referrer = cookies[:referrer]
+    referrer = device_path(query_params) if cookies[:referrer].nil?
     respond_to do |format|
       if @device.update(device_params)
-        format.html { redirect_to devices_url, notice: t('views.device.device_successfully_updated') }
+        format.html { redirect_to referrer, notice: t('views.device.device_successfully_updated') }
         format.json { render action: 'index', status: :accepted }
       else
         format.html { render action: 'edit' }
@@ -53,8 +56,6 @@ class DevicesController < ApplicationController
     end
   end
 
-  # DELETE /devices/1
-  # DELETE /devices/1.json
   def destroy
     @device.destroy
     respond_to do |format|
@@ -65,18 +66,28 @@ class DevicesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_device
+  def device
     @device = current_user.devices.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet,
-  # only allow the white list through.
+  def api_device
+    @device ||= current_user.devices.confirmed.find(params[:id])
+    @api_device ||= API::V1::Device.new @device.id, query_params['start_date'],
+                                        query_params['end_date'],
+                                        current_user.time_zone
+    @all_stat ||= @api_device.summary_table
+  end
+
   def device_params
     params.require(:device)
-      .permit(
-        :name, :imei, :interval, :slot_number, :normal_cycle,
-        :material_consumption, :sensor_readings, :schedule, :description
-      )
+          .permit(
+            :name, :sensor_readings, :schedule, :description, :imei,
+            :slot_number, :interval, :normal_cycle, :material_consumption,
+            :device_type, :min_cycle, :max_cycle, :id
+          )
+  end
+
+  def query_params
+    params.permit(:start_date, :end_date)
   end
 end

@@ -1,0 +1,29 @@
+- start_date = (params['start_date'].nil? || params['start_date'].empty?) ? default_start_date.strftime('%d.%m.%Y') : params['start_date']
+- end_date = (params['end_date'].nil? || params['end_date'].empty?) ? default_end_date.strftime('%d.%m.%Y') : params['end_date']
+- query = { end_date: params['end_date'], start_date: params['start_date'] }
+- content_for :header_content do
+  .mdl-layout__header-row.mdl-color--grey-100.mdl-color-text--grey-600
+    .mdl-layout-title = @device.name
+    .mdl-layout-spacer
+    form#daterange-form
+      input#start-date name='start_date' type='hidden'
+      input#end-date name='end_date' type='hidden'
+    span#date-time-picker-values
+      = t('stats.ranges.from')
+      ' 
+      = start_date
+      ' 
+      = t('stats.ranges.to')
+      ' 
+      = end_date
+    i#datetime-picker.material-icons &#xE916;
+    <!-- Right aligned menu below button -->
+    button#menu-lower-right.mdl-button.mdl-js-button.mdl-button--icon
+      i.material-icons more_vert
+    ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect.stat-menu for='menu-lower-right'
+      li.mdl-menu__item
+        = link_to t('stats.menu.stats'), device_path(query)
+      li.mdl-menu__item
+        = link_to t('stats.menu.states'), device_states_path(query)
+      li.mdl-menu__item
+        = link_to t('stats.menu.settings'), edit_device_path(query)

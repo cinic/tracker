@@ -38,9 +38,8 @@ class Admin::Device < Device
   end
 
   def refill_types
-    Clamp.where(device_id: id).update_all(type: nil)
     Delayed::Job.enqueue(
-      PacketProcess::TypesJob.new(id, true),
+      PacketProcess::TypesCleanJob.new(id, true),
       queue: 'intervals',
       run_at: 1.minutes.from_now
     )
@@ -49,7 +48,7 @@ class Admin::Device < Device
   def refill_pings
     pings_destroy
     Packet.where(device_id: id, type: '85')
-      .find_in_batches(batch_size: 1000) do |group|
+          .find_in_batches(batch_size: 1000) do |group|
       ActiveRecord::Base.transaction do
         group.each do |item|
           ping_job item.id

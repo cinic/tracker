@@ -1,0 +1,25 @@
+// ======
+// COLORS
+// ======
+// Summary table
+// ------
+
+$st-default:          #e7e8ea;
+$st-modes-norm:       #a4dc85;
+$st-modes-acl:        #a1d1f3;
+$st-modes-fail:       #f87e72;
+$st-modes-idle:       #eeb679;
+
+$st-perfomance:       #d9a0ea;
+$st-perfomance-fail:  $st-modes-fail;
+$st-perfomance-idle:  $st-modes-idle;
+
+$st-time-norm:        $st-modes-norm;
+$st-time-all:         #9c6876;
+$st-time-goal:        #ead581;
+$st-material:         $st-perfomance;
+
+// Links
+// ------
+
+$default-link:        #598bc8;

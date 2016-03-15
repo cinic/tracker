@@ -16,7 +16,5 @@
 //= require bootstrap
 //= require bootstrap.datepicker
 //= require jquery.uniform.min
-//= require ./select2/select2.full
+//= require select2/select2.full
 //= require theme
-// require_tree .
-

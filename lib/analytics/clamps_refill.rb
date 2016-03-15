@@ -26,6 +26,7 @@ module Analytics
       'SELECT DISTINCT tmp_values.device_id, tmp_values.time::TIMESTAMP FROM '\
       "( VALUES #{@contents.join(',')} ) as tmp_values (device_id, time) "\
       'LEFT JOIN clamps tmp ON tmp.time = tmp_values.time::TIMESTAMP '\
+      'AND tmp.device_id = tmp_values.device_id '\
       'WHERE tmp.time IS NULL'\
     end
   end

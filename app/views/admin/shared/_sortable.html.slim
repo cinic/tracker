@@ -1,4 +1,6 @@
 - packet ||= nil
+- order ||= nil
+- ticket ||= nil
 .row-fluid.filter-block.form-wrapper
   == form_tag target, method: :get, authenticity_token: false do
     .row-fluid.input-daterange
@@ -7,6 +9,16 @@
           .input-prepend
             span.add-on #
             = text_field_tag :imei, params[:imei], placeholder: 'IMEI'
+      - elsif order
+        .span2
+          .input-prepend
+            span.add-on #
+            = text_field_tag :order_id, params[:order_id], placeholder: 'ID заказа'
+      - elsif ticket
+        .span2
+          .input-prepend
+            span.add-on #
+            = text_field_tag :ticket_id, params[:ticket_id], placeholder: 'ID тикета'
       - else
         .span2
           .input-prepend

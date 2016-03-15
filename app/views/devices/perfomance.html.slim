@@ -1,0 +1,4 @@
+= render 'header_component'
+= render 'default_intervals', target: device_perfomance_path
+= render 'stat_menu'
+= react_component 'DeviceStatExtended', { data: @all_stat, view: 'perfomance' }, { prerender: false }

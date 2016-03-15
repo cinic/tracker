@@ -14,7 +14,8 @@
     = f.text_field :password, class: "span5 inline-input"
   .field-box
     = f.label :time_zone, 'Часовой пояс'
-    = f.time_zone_select :time_zone, nil, :class => :timezone
+    = f.select :time_zone, options_for_select(ActiveSupport::TimeZone.all.collect { |k| [k.to_s, k.name] }, @admin_user.raw_tz), {}, { class: 'timezone' }
+    
   .field-box
     = f.label :banned do
       = f.check_box :banned

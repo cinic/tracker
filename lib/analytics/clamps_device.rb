@@ -27,6 +27,7 @@ module Analytics
 
     # Select 81 type packets between 85
     def packets
+      return [] if last_packet.nil?
       Packet.where('created_at < ? AND created_at > ? '\
                    'AND device_id = ? AND type = ?',
                    @packet.created_at, last_packet.created_at,
@@ -48,6 +49,7 @@ module Analytics
       'SELECT DISTINCT tmp_values.device_id, tmp_values.time::TIMESTAMP FROM '\
       "( VALUES #{clamps.join(',')} ) as tmp_values (device_id, time) "\
       'LEFT JOIN clamps tmp ON tmp.time = tmp_values.time::TIMESTAMP '\
+      'AND tmp.device_id = tmp_values.device_id '\
       'WHERE tmp.time IS NULL'\
     end
   end

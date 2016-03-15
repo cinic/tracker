@@ -1,0 +1,13 @@
+.mdl-grid
+    .mdl-cell.mdl-cell--2-col.mdl-typography--text-center
+      == link_to_unless_active t('stats.ranges.today'), "#{target}?#{default_query_now.to_query}", 'active'
+    .mdl-cell.mdl-cell--2-col.mdl-typography--text-center
+      == link_to_unless_active t('stats.ranges.yesterday'), "#{target}?#{default_query_yesterday.to_query}", 'active'
+    .mdl-cell.mdl-cell--2-col.mdl-typography--text-center
+      == link_to_unless_active t('stats.ranges.week'), "#{target}?#{default_query_week.to_query}", 'active'
+    .mdl-cell.mdl-cell--2-col.mdl-typography--text-center
+      == link_to_unless_active t('stats.ranges.month'), "#{target}?#{default_query_month.to_query}", 'active'
+    .mdl-cell.mdl-cell--2-col.mdl-typography--text-center
+      == link_to_unless_active t('stats.ranges.year'), "#{target}?#{default_query_year.to_query}", 'active'
+    .mdl-cell.mdl-cell--2-col.mdl-typography--text-center
+      == link_to_unless_active t('stats.ranges.all'), "#{target}?#{default_query_all_time.to_query}", 'active'

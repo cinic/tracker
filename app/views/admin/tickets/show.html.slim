@@ -1,0 +1,15 @@
+- content_for :title, "Тикет #{@admin_ticket.id}"
+- content_for :page_title, "Тикет #{@admin_ticket.id}"
+p#notice = notice
+
+span.label.label-info = @admin_ticket.close == true ? t('activerecord.attributes.ticket.close') : t('activerecord.attributes.ticket.open')
+h3 = @admin_ticket.subject
+p
+p
+  b
+    ' Устройство: 
+    = link_to @admin_ticket.device_id, admin_device_path(@admin_ticket.device_id) unless @admin_ticket.device_id.nil?
+p = @admin_ticket.text
+= link_to 'Назад', admin_tickets_path
+' | 
+= link_to 'Редактировать', edit_admin_ticket_path(@admin_ticket)

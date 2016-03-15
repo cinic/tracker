@@ -1,0 +1,19 @@
+= form_for @admin_ticket, url: admin_ticket_path do |f|
+  = render "shared/error_messages", target: @admin_ticket
+  .field-box
+    = f.label :close, 'Статус'
+    .ui-select = f.select(:close, [[t('activerecord.attributes.ticket.close'), true], [t('activerecord.attributes.ticket.open'), false]], {include_blank: false}, {class: 'ui-select'})
+  .field-box
+    = f.label :subject
+    = f.text_field :subject, class: 'span8 inline-input', disabled: 'disabled'
+  .field-box
+    = f.label :device
+    = f.text_field :device_id, class: 'span8 inline-input', disabled: 'disabled'
+  .field-box
+    = f.label :user
+    = f.text_field :user_id, class: 'span8 inline-input', disabled: 'disabled'
+  .field-box
+    = f.label :text
+    = f.text_area :text, class: 'span8 inline-input', disabled: 'disabled'
+
+  .actions = f.submit 'Сохранить', class: 'btn-flat success'

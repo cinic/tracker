@@ -1,32 +1,13 @@
-.row.fullwidth
-  .columns
-    h1.page-title О сервисе
-.row.fullwidth
-  .large-6.small-12.columns
-    p Показания механического датчика смыкания (установить новое/показать текущее расчетное) (синхронизируется, чтобы потом фиксировать расходжения в количестве срабатываний механического и электронного датчика (оба датчика одновременно рабочим заблокировать сложно, если есть расхождения укажет руководителю на необходимость расследования); но его может не быть, поэтому заполнение данного поля опционально)
-    p Рабочий график (либо выбрать дефолтный (указывается на странице настроек аккаунта) либо настроить особый для этого устройства; нужен для адекватного учета простоев - чтобы остановка оборудования в нерабочее время не считалось простоем; по умолчанию выбран дефолтный график)
-    p Периодичность передачи данных на сервер (с указанием, что чем чаще передача, тем меньше ресурс батареи; минимальный - раз в час, максимальный - раз в неделю)
-    .image
-      =holder_tag "600x400"
-  .large-6.small-12.columns
-    dl class="accordion faq" data-accordion=""
-      dd class="accordion-navigation"
-        a href="#panel1" Сколько стоит
-        #panel1 class="content"
-          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis laboriosam libero ducimus ab animi architecto eligendi unde, nam velit provident.
-      dd class="accordion-navigation"
-        a href="#panel2" Где купить
-        #panel2 class="content"
-          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis laboriosam libero ducimus ab animi architecto eligendi unde, nam velit provident.
-      dd class="accordion-navigation"
-        a href="#panel3" А где это?
-        #panel3 class="content"
-          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis laboriosam libero ducimus ab animi architecto eligendi unde, nam velit provident.
-
-.row.fullwidth
-  .large-6.small-12.columns
-    h2 Список наших возможностей
-    p Показания механического датчика смыкания (установить новое/показать текущее расчетное) (синхронизируется, чтобы потом фиксировать расходжения в количестве срабатываний механического и электронного датчика (оба датчика одновременно рабочим заблокировать сложно, если есть расхождения укажет: руководителю на необходимость расследования); но его может не быть, поэтому заполнение данного поля опционально)
-    p Рабочий график (либо выбрать дефолтный (указывается на странице настроек аккаунта) либо настроить особый для этого устройства; нужен для адекватного учета простоев - чтобы остановка оборудования в нерабочее время не считалось простоем; по умолчанию выбран дефолтный график)
-    p Периодичность передачи данных на сервер (с указанием, что чем чаще передача, тем меньше ресурс батареи; минимальный - раз в час, максимальный - раз в неделю)
-
+.mdl-grid
+  .mdl-cell.mdl-cell--8-col.mdl-cell--8-col-tablet
+    h1 = t('pages.about.part_one_header')
+    div = t('pages.about.part_one_description')
+    h2 = t('pages.about.part_two_header')
+    div = t('pages.about.part_two_description')
+    h2 = t('pages.about.part_three_header')
+    div = t('pages.about.part_three_description')
+    h2 = t('pages.about.part_four_header')
+    div = t('pages.about.part_four_description')
+    h2 = t('pages.about.part_five_header')
+    div = t('pages.about.part_five_description')
+  .mdl-cell.mdl-cell--4-col.mdl-cell--4-col-tablet

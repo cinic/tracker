@@ -1,1 +1,0 @@
-json.array! @states, :sim_balance, :temp, :v_batt, :gis, :datetime, :created_at, :rssi

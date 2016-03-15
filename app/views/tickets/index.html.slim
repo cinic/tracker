@@ -1,0 +1,25 @@
+.mdl-grid
+  .mdl-cell.mdl-cell--8-col.mdl-cell--8-col-tablet.mdl-cell--12-col-phone
+    p#notice.mdl-color-text--green-600 = notice
+    h1 = t('pages.ticket.part_one_header')
+    p = t('pages.ticket.part_one_description')
+    ol
+      - @tickets.each do |ticket|
+        li
+          h5 = ticket.subject
+          .content = ticket.text
+          - if ticket.device
+            .material-icons id="device-#{ticket.device.id}"
+              |&#xE1B0;
+            .mdl-tooltip for="device-#{ticket.device.id}"
+              = ticket.device.name
+          .icon.material-icons id="ticket-#{ticket.id}"
+            - if ticket.close == true
+              |&#xE899;
+            - else
+              |&#xE898;
+          .mdl-tooltip for="ticket-#{ticket.id}"
+            = ticket.close == true ? t('activerecord.attributes.ticket.close') : t('activerecord.attributes.ticket.open')
+
+    p
+      = link_to t('activerecord.attributes.ticket.submit'), new_ticket_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'

@@ -1,5 +1,4 @@
 set :stage, :staging
-set :rvm_type, :user
 set :deploy_to, '/home/deployer/zoomator/staging'
 set :app_name, 'zoomator'
 set :user, 'deployer'
@@ -7,6 +6,8 @@ set :branch, 'development'
 # set :rails_env, 'staging' #added for delayed job
 set :delayed_job_command, 'bin/delayed_job'
 set :delayed_job_args, '--queues=packets,intervals'
+set :foreman_env, '.env.staging'
+set :foreman_proc, 'Procfile.staging'
 
 # Simple Role Syntax
 # ==================
@@ -55,3 +56,8 @@ set :ssh_options, {
 # setting per server overrides global ssh_options
 
 fetch(:default_env).merge!(rails_env: :staging)
+
+namespace :deploy do
+  desc 'In staging environment restart Delayed Job'
+  after :finishing, 'delayed_job:restart'
+end

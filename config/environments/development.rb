@@ -28,11 +28,13 @@ Toplast::Application.configure do
   config.active_record.migration_error = :page_load
 
   # Mailer
-  config.action_mailer.default_url_options = { host: 'dev.zoomator.cc' }
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'stage.zoomator.dev' }
+  config.action_mailer.delivery_method = :test
   config.action_mailer.perform_deliveries = false
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  # React development variant (unminified)
+  config.react.variant = :development
 end

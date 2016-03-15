@@ -1,0 +1,33 @@
+- content_for :title, "Данные о заказах"
+- content_for :page_title, "Данные о заказах"
+- content_for :page_class, 'form-page'
+p#notice = notice
+.row-fluid.head
+  .span12
+      h4
+        = "#{yield(:page_title)}"
+        .btn-group.pull-right
+          = render 'admin/shared/sortable', target: admin_orders_path, order: true
+.table-wrapper
+  table.table.table-hover
+    thead
+      tr
+        th.span3 Номер заказа
+        th.span3 Статус
+        th.span3 Контакт
+        th.span3 Создан<br>Обновлён
+    tbody
+      - @admin_orders.each do |admin_order|
+        tr
+          td = link_to admin_order.id, edit_admin_order_path(admin_order.id)
+          td
+            span.label.label-info = admin_order.status
+          td = admin_order.contact
+          td 
+            = l(admin_order.created_at, format: :default)
+            br
+            = l(admin_order.updated_at, format: :default)
+.row-fluid = page_entries_info @admin_orders
+.row-fluid
+  .pagination.pull-left
+    = paginate @admin_orders

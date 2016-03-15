@@ -1,0 +1,154 @@
+.devices-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  .device-name {
+    margin-top: 0;
+  }
+}
+
+.summary-table {
+  width: 100%;
+
+  thead {
+    th {
+      border: 1px solid $st-default;
+    }
+    th.bordered {
+      border-bottom: 4px solid $st-default;
+
+      &.modes-norm { border-bottom-color: $st-modes-norm; }
+      &.modes-acl  { border-bottom-color: $st-modes-acl; }
+      &.modes-fail { border-bottom-color: $st-modes-fail; }
+      &.modes-idle { border-bottom-color: $st-modes-idle; }
+      &.perfomance { border-bottom-color: $st-perfomance; }
+      &.perfomance-fail { border-bottom-color: $st-perfomance-fail; }
+      &.perfomance-idle { border-bottom-color: $st-perfomance-idle; }
+      &.time-norm  { border-bottom-color: $st-time-norm; }
+      &.time-all   { border-bottom-color: $st-time-all; }
+      &.time-goal  { border-bottom-color: $st-time-goal; }
+      &.material   { border-bottom-color: $st-material; }
+    }
+  }
+  tbody {
+    tr {
+      $opacity-even:  .25;
+      $opacity-odd:   .15;
+      &:nth-child(even) {
+        td {
+          &.modes-norm { background-color: rgba($st-modes-norm, $opacity-even); }
+          &.modes-acl  { background-color: rgba($st-modes-acl, $opacity-even); }
+          &.modes-fail { background-color: rgba($st-modes-fail, $opacity-even); }
+          &.modes-idle { background-color: rgba($st-modes-idle, $opacity-even); }
+          &.perfomance { background-color: rgba($st-perfomance, $opacity-even); }
+          &.perfomance-fail { background-color: rgba($st-perfomance-fail, $opacity-even); }
+          &.perfomance-idle { background-color: rgba($st-perfomance-idle, $opacity-even); }
+          &.time-norm  { background-color: rgba($st-time-norm, $opacity-even); }
+          &.time-all   { background-color: rgba($st-time-all, $opacity-even); }
+          &.time-goal  { background-color: rgba($st-time-goal, $opacity-even); }
+          &.material   { background-color: rgba($st-material, $opacity-even); }
+        }
+      }
+      &:nth-child(odd) {
+        td {
+          &.modes-norm { background-color: rgba($st-modes-norm, $opacity-odd); }
+          &.modes-acl  { background-color: rgba($st-modes-acl, $opacity-odd); }
+          &.modes-fail { background-color: rgba($st-modes-fail, $opacity-odd); }
+          &.modes-idle { background-color: rgba($st-modes-idle, $opacity-odd); }
+          &.perfomance { background-color: rgba($st-perfomance, $opacity-odd); }
+          &.perfomance-fail { background-color: rgba($st-perfomance-fail, $opacity-odd); }
+          &.perfomance-idle { background-color: rgba($st-perfomance-idle, $opacity-odd); }
+          &.time-norm  { background-color: rgba($st-time-norm, $opacity-odd); }
+          &.time-all   { background-color: rgba($st-time-all, $opacity-odd); }
+          &.time-goal  { background-color: rgba($st-time-goal, $opacity-odd); }
+          &.material   { background-color: rgba($st-material, $opacity-odd); }
+        }
+      }
+    }
+  }
+}
+.device-tab-content {
+  display: flex !important;
+}
+
+.device-stat-nav {
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-content: space-between;
+    align-items: flex-start;
+    line-height: 24px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 500;
+
+    li {
+      position: relative;
+      float: left;
+      margin: 0;
+      padding: 0 24px 0 24px;
+      line-height: 24px;
+      text-align: center;
+      text-transform: uppercase;
+      overflow: hidden;
+
+      a {
+        color: rgba(0, 0, 0, .54);
+        &.is-active,
+        &:hover {
+          color: rgba(0, 0, 0, .87);
+          text-decoration: none;
+        }
+        &.link-to-mini {
+          font-size: 80%;
+          color: $default-link;
+        }
+      }
+    }
+  }
+}
+// Menu after device title
+.stat-menu {
+  li {
+    &.mdl-menu__item {
+      padding: 0;
+    }
+    a {
+      display: block;
+      padding: 0 16px;
+    }
+  }
+}
+
+.link-to-extended {
+  float: right;
+  text-decoration: underline !important;
+  font-size: 60%;
+  line-height: 24px;
+  color: $default-link;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.states-table {
+  width: 100%;
+  .ymap-container {
+    td {
+      padding: 0;
+    }
+  }
+  .state-ymap {
+    width: 100%;
+    height: 300px;
+  }
+
+  .hidden-row {
+    display: none;
+  }
+}

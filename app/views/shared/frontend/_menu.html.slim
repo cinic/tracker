@@ -1,0 +1,15 @@
+- css ||= nil
+nav.mdl-navigation class="#{css}"
+  - unless current_user.nil?
+    = link_to t('pages.devices.menu_item'), devices_path, class: 'mdl-navigation__link'
+    = link_to t('pages.user.menu_item'), edit_user_path, class: 'mdl-navigation__link'
+    = link_to t('pages.order.menu_item'), new_order_path, class: 'mdl-navigation__link'
+    = link_to t('pages.ticket.menu_item'), tickets_path, class: 'mdl-navigation__link'
+    = link_to t('pages.about.menu_item'), root_path, class: 'mdl-navigation__link'
+    = link_to t('pages.logout.menu_item'), destroy_user_session_path, { class: 'mdl-navigation__link', role: 'button', 'data-method' => 'delete' }
+  - else
+    = link_to t('pages.about.menu_item'), root_path, class: 'mdl-navigation__link'
+    = link_to t('pages.order.menu_item'), new_order_path, class: 'mdl-navigation__link'
+    = link_to t('pages.ticket.menu_item'), tickets_path, class: 'mdl-navigation__link'
+    = link_to t('pages.registration.menu_item'), new_user_registration_path, class: 'mdl-navigation__link'
+    = link_to t('pages.login.menu_item'), new_user_session_path, class: 'mdl-navigation__link'

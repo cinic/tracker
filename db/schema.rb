@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818225711) do
+ActiveRecord::Schema.define(version: 20160229114257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20150818225711) do
   end
 
   add_index "admin_admins", ["email"], name: "index_admin_admins_on_email", unique: true, using: :btree
+
+  create_table "admin_operational_data_devices", force: :cascade do |t|
+    t.string   "imei",        limit: 255
+    t.integer  "device_id"
+    t.datetime "datetime"
+    t.integer  "raw_data_id"
+  end
+
+  add_index "admin_operational_data_devices", ["device_id"], name: "index_admin_operational_data_devices_on_device_id", using: :btree
+  add_index "admin_operational_data_devices", ["imei"], name: "index_admin_operational_data_devices_on_imei", using: :btree
+  add_index "admin_operational_data_devices", ["raw_data_id"], name: "index_admin_operational_data_devices_on_raw_data_id", using: :btree
 
   create_table "clamps", force: :cascade do |t|
     t.datetime "time"
@@ -73,16 +84,30 @@ ActiveRecord::Schema.define(version: 20150818225711) do
     t.string   "imei_substr",          limit: 255,                 null: false
     t.string   "slot_number",          limit: 255,                 null: false
     t.string   "interval",             limit: 255,                 null: false
-    t.string   "normal_cycle",         limit: 255,                 null: false
+    t.string   "normal_cycle"
     t.string   "material_consumption", limit: 255,                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.json     "state"
     t.string   "device_type",          limit: 255
+    t.string   "min_cycle"
+    t.string   "max_cycle"
   end
 
   add_index "devices", ["status"], name: "index_devices_on_status", using: :btree
   add_index "devices", ["user_id"], name: "index_devices_on_user_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "contact",    null: false
+    t.integer  "user_id"
+    t.string   "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "status"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "packets", force: :cascade do |t|
     t.string   "imei_substr", limit: 255,                 null: false
@@ -122,6 +147,19 @@ ActiveRecord::Schema.define(version: 20150818225711) do
 
   add_index "states", ["device_id"], name: "index_states_on_device_id", using: :btree
 
+  create_table "tickets", force: :cascade do |t|
+    t.string   "subject"
+    t.integer  "user_id"
+    t.integer  "device_id"
+    t.text     "text",                       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "close",      default: false
+  end
+
+  add_index "tickets", ["device_id"], name: "index_tickets_on_device_id", using: :btree
+  add_index "tickets", ["user_id"], name: "index_tickets_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255,                    null: false
     t.string   "role",                   limit: 255, default: "1",      null: false
@@ -150,4 +188,7 @@ ActiveRecord::Schema.define(version: 20150818225711) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "orders", "users"
+  add_foreign_key "tickets", "devices"
+  add_foreign_key "tickets", "users"
 end

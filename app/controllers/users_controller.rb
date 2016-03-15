@@ -1,17 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  
-  def show;end
 
-  def edit;end
+  def show; end
+
+  def edit; end
 
   def update
-    if user_params[:password].blank?
-      user_params.delete('password')
-    end
+    user_params.delete('password') if user_params[:password].blank?
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url, notice: t('views.user.user_successfully_updated') }
+        format.html { redirect_to edit_user_url, notice: t('views.user.user_successfully_updated') }
         format.json { render action: 'show', status: :accepted }
       else
         format.html { render action: 'edit' }
@@ -21,13 +19,12 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = current_user
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit!
-    end
+  def set_user
+    @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit!
+  end
 end

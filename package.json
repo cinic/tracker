@@ -1,0 +1,46 @@
+{
+  "private": true,
+  "name": "zoomator",
+  "version": "1.0.0",
+  "description": "Analytics app for manufacturing",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "https://cinic_@bitbucket.org/ifoxy/zoomator.git"
+  },
+  "author": "Alexander Andreev",
+  "bugs": {
+    "url": "https://bitbucket.org/ifoxy/zoomator/issues"
+  },
+  "homepage": "http://stage.zoomator.com",
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "browserify-incremental": "^3.0.1",
+    "coffeeify": "^2.0.1",
+    "highcharts": "^4.2.1",
+    "material-design-lite": "^1.0.6",
+    "material-timepicker": "^0.1.2",
+    "moment": "^2.10.6",
+    "react": "^0.14.6",
+    "reactify": "^1.1.1",
+    "underscore": "^1.8.3"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "dependencies": {
+    "browserify": "^12.0.1",
+    "browserify-incremental": "^3.0.1",
+    "coffeeify": "^2.0.1",
+    "highcharts": "^4.2.1",
+    "material-design-lite": "^1.0.6",
+    "material-timepicker": "^0.1.2",
+    "microplugin": "0.0.3",
+    "moment": "^2.10.6",
+    "moment-timezone": "^0.5.0",
+    "react": "^0.14.7",
+    "reactify": "^1.1.1",
+    "sifter": "^0.4.5",
+    "underscore": "^1.8.3"
+  }
+}

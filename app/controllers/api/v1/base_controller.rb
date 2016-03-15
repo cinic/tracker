@@ -3,11 +3,11 @@ module API
     class BaseController < ActionController::Base
       protect_from_forgery with: :null_session
       before_action :authenticate_user!
-      before_action :set_resource, only: [:show, :update, :states]
+      before_action :set_resource, only: [:show, :update]
       respond_to :json
 
       def show
-        respond_with get_resource
+        render json: get_resource.to_json
       end
 
       def update
@@ -31,7 +31,7 @@ module API
       # to permit additional parameters to search on
       # @return [Hash]
       def query_params
-        {}
+        params.permit(:id, :locale, :format)
       end
 
       # Returns the allowed parameters for pagination
@@ -63,7 +63,7 @@ module API
 
       # Use callbacks to share common setup or constraints between actions.
       def set_resource(resource = nil)
-        resource ||= resource_class.find(params[:id])
+        resource ||= resource_class.find(query_params[:id])
         instance_variable_set("@#{resource_name}", resource)
       end
     end

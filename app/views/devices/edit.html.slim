@@ -1,7 +1,4 @@
-- content_for :title, "Редактирование устройства #{@device.name}"
-- content_for :page_title, "Редактирование устройства #{@device.name}"
-
+- content_for :title, "Настройки пресс-формы #{@device.name}"
+- content_for :page_title, "Настройки пресс-формы #{@device.name}"
+= render 'header_component'
 == render 'form'
-
-= link_to 'Назад', devices_path
-

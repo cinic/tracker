@@ -4,11 +4,15 @@ Toplast::Application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resource :packets, only: [:create]
-      resources :devices, only: [:create, :new, :update, :edit, :index]
-      get 'devices/:id/settings', to: 'devices#show'
-      get 'devices/:id/states', to: 'devices#states'
-      get 'devices/:id/graph', to: 'devices#graph'
-      get 'devices/:id/modes', to: 'devices#modes'
+      resources :devices
+      get 'devices/:id/states', to: 'devices#states', as: 'device_states'
+      get 'devices/:id/modes', to: 'devices#modes', as: 'device_modes'
+      get 'devices/:id/modes/mini', to: 'devices#modes_mini', as: 'device_modes_mini'
+      get 'devices/:id/perfomance', to: 'devices#perfomance', as: 'device_perfomance'
+      get 'devices/:id/perfomance/mini', to: 'devices#perfomance_mini', as: 'device_perfomance_mini'
+      get 'devices/:id/times/mini', to: 'devices#times_mini', as: 'device_times_mini'
+      get 'devices/:id/consumption/mini', to: 'devices#consumption_mini', as: 'device_consumption_mini'
+      get 'devices/:id/summary_table', to: 'devices#summary_table', as: 'device_summary_table'
     end
     post 'device_data', to: 'v1/packets#create'
   end
@@ -36,6 +40,8 @@ Toplast::Application.routes.draw do
       resources :clamps, only: [:index]
       resources :states, only: [:index]
       resources :pings, only: [:index]
+      resources :orders, only: [:index, :edit, :update]
+      resources :tickets, only: [:index, :show, :edit, :update]
       root 'dashboard#show'
     end
   end
@@ -50,14 +56,15 @@ Toplast::Application.routes.draw do
       registration: '/',
       sign_up: 'registration'
     }
-    resource :user, only: [:edit, :update, :show]
+    resource :user, only: [:edit, :update]
+    get 'devices/:id/modes', to: 'devices#modes', as: 'device_modes'
+    get 'devices/:id/perfomance', to: 'devices#perfomance', as: 'device_perfomance'
+    get 'devices/:id/times', to: 'devices#times', as: 'device_times'
+    get 'devices/:id/material-consumption', to: 'devices#material_consumption', as: 'device_material_consumption'
+    get 'devices/:id/states', to: 'devices#states', as: 'device_states'
     resources :devices
-    get 'pages/support'
-    get 'pages/about'
-    get 'pages/buy'
-    get 'pages/settings'
-    get 'pages/device'
-    get 'pages/devices'
-    root to: 'base#index'
+    resources :tickets
+    resource :order, only: [:new, :create]
+    root to: 'pages#about'
   end
 end

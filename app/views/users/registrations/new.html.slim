@@ -11,9 +11,17 @@
         = f.label :email
         = f.email_field :email, autofocus: true, class: 'span12', placeholder: t('activerecord.attributes.user.email')
       .field
+        = f.label :company
+        = f.text_field :company, placeholder: t('activerecord.attributes.user.company'), class: 'span12'
+      .field
         = f.label :password
         /- if @validatable
         = f.password_field :password, autocomplete: "off", class: 'span12', placeholder: t('activerecord.attributes.user.password')
+        - if @minimum_password_length
+          br
+          em
+            small = t('views.user.password_length', count: @minimum_password_length)
+
       .actions
         = f.submit t('views.user.register'), class: 'button expand'
     .login-links

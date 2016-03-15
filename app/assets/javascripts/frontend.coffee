@@ -1,0 +1,15 @@
+#= require jquery2
+#= require jquery_ujs
+#= require turbolinks
+#= require react
+#= require react_ujs
+#= require material-design-lite/material
+#= require frontend/md_turbolinks
+#= require frontend/time_formatter
+#= require i18n
+#= require i18n/translations
+#= require frontend/components
+#= require frontend/selectize/selectize
+#= require frontend/timepicker
+#= require frontend/jquery-date-range-picker/jquery.daterangepicker
+#= require frontend/forms

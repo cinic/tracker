@@ -224,3 +224,8 @@ staging:
   <<: *default_settings
   monitor_mode: true
   app_name: Zoomator (Staging)
+
+front:
+  <<: *default_settings
+  monitor_mode: true
+  app_name: Zoomator (Front + Node.js)

@@ -1,0 +1,16 @@
+p#notice = notice
+
+p
+  strong Subject:
+  = @ticket.subject
+p
+  strong Device:
+  = @ticket.device.name if @ticket.device
+p
+  strong Text:
+  = @ticket.text
+p
+  strong close:
+  = @ticket.close == true ? t('activerecord.attributes.ticket.close') : t('activerecord.attributes.ticket.open')
+
+= link_to 'Назад', tickets_path

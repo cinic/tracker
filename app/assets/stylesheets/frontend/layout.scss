@@ -1,0 +1,49 @@
+/* @import 'material-design-lite/src/material-design-lite'; */
+body {
+  -webkit-font-smoothing: antialiased;
+}
+.mdl-layout-title {
+  a { text-decoration: none; }
+}
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%;
+
+  @media screen and (max-width: $grid-tablet-breakpoint - 1) {
+    width: 100%;
+    //overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    > .table {
+      margin-bottom: 0;
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
+
+.custom-select {
+  &.mdl-textfield__input {
+    border-bottom: none;
+  }
+}
+
+#datetime-picker {
+  cursor: pointer;
+
+  &:hover {
+    color: lighten(rgb(117, 117, 117), 20);
+  }
+}
+
+html.turbolinks-progress-bar::before {
+  background-color: rgb(255, 64, 129) !important;
+}

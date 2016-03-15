@@ -1,0 +1,21 @@
+= form_for @ticket do |f|
+  = render 'shared/error_messages', target: @ticket
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.text_field :subject, class: 'mdl-textfield__input'
+    = f.label :subject, class: 'mdl-textfield__label'
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.label :device
+    br
+    = f.select(:device_id,
+               current_user.devices.collect { |p| [p.name, p.id] },
+               { include_blank: t('activerecord.attributes.ticket.device_null') },
+               { class: 'custom-select-tickets',
+                 placeholder: t('activerecord.attributes.ticket.device_null') })
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.text_area :text, class: 'mdl-textfield__input'
+    = f.label :text, class: 'mdl-textfield__label'
+  /.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.label :close, class: 'mdl-checkbox mdl-js-checkbox'
+      = f.check_box :close, class: 'mdl-checkbox__input'
+      span.mdl-checkbox__label = t('activerecord.attributes.ticket.close')
+  .actions = f.submit t('activerecord.attributes.ticket.submit'), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'

@@ -1,9 +1,13 @@
 require File.expand_path('../boot', __FILE__)
-require 'susy'
+
+require 'rails'
 # Pick the frameworks you want:
+require 'active_model/railtie'
+require 'active_job/railtie'
 require 'active_record/railtie'
 require 'action_controller/railtie'
 require 'action_mailer/railtie'
+require 'action_view/railtie'
 require 'sprockets/railtie'
 # require "rails/test_unit/railtie"
 
@@ -24,21 +28,39 @@ module Toplast
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    # config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+    # config.i18n.enforce_available_locales = false
+    # config.i18n.available_locales = ['ru']
     config.i18n.default_locale = :ru
     config.generators do |g|
       g.stylesheets false
       g.javascripts false
+      g.helper      false
       g.test_framework :rspec,
                        fixtures: true,
                        view_specs: false,
                        helper_specs: false,
                        routing_specs: false,
-                       controller_specs: true,
+                       controller_specs: false,
                        request_specs: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
-      g.orm :active_record
     end
 
     config.autoload_paths << Rails.root.join('lib')
+    # Set browserify extensions in command line
+    # Add --extension .coffee to require coffee script files
+    config.browserify_rails.commandline_options =  '-t coffeeify -t [ reactify --extension coffee ] --extension .coffee'
+
+    # Settings for the pool of renderers:
+    config.react.server_renderer_pool_size  ||= 1  # ExecJS doesn't allow more than one on MRI
+    config.react.server_renderer_timeout    ||= 20 # seconds
+    config.react.server_renderer = React::ServerRendering::SprocketsRenderer
+    config.react.server_renderer_options = {
+      files: ['react-server.js', 'frontend/components.js'], # files to load for prerendering
+      replay_console: true             # if true, console.* will be replayed client-side
+    }
+    # React development variant (minified)
+    config.react.variant = :production
+    config.react.addons = true
   end
 end

@@ -1,15 +1,22 @@
-= form_for @user do |f|
-  = render "shared/error_messages", target: @user
-  .field-box
-    = f.label :name, 'ФИО'
-    = f.text_field :name, class: "span5 inline-input"
-  .field-box
-    = f.label :email, 'Email'
-    = f.text_field :email, class: "span5 inline-input"
-  .field-box
-    = f.label :company, 'Компания'
-    = f.text_field :company, class: "span5 inline-input"
-  .field-box
-    = f.label :password, 'Пароль'
-    = f.text_field :password, class: "span5 inline-input"
-  .actions = f.submit (@user.new_record? ? "Зарегистрироваться" : "Обновить"), class: 'btn-flat success'
+p#notice.mdl-color-text--green-600 = notice
+= form_for @user, url: user_url do |f|
+  .mdl-grid
+    .mdl-cell.mdl-cell--4-col.mdl-cell--6-col-tablet.mdl-cell--12-col-phone
+      = render "shared/error_messages", target: @user
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+        = f.text_field :name, class: 'mdl-textfield__input'
+        = f.label :name, 'Имя Фамилия', class: 'mdl-textfield__label'
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+        = f.text_field :email, class: 'mdl-textfield__input'
+        = f.label :email, 'Электропочта', class: 'mdl-textfield__label'
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+        = f.text_field :company, class: 'mdl-textfield__input'
+        = f.label :company, 'Компания', class: 'mdl-textfield__label'
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+        = f.label :time_zone, 'Часовой пояс'
+        br
+        = f.select :time_zone, options_for_select(ActiveSupport::TimeZone.all.collect { |k| [k.to_s, k.name] }, current_user.raw_tz), {}, { class: 'custom-select timezone' }
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+        = f.text_field :password, class: 'mdl-textfield__input'
+        = f.label :password, 'Изменить пароль', class: 'mdl-textfield__label'
+      .actions = f.submit (@user.new_record? ? "Зарегистрироваться" : "Сохранить"), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'

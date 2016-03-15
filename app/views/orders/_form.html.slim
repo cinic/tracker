@@ -1,0 +1,22 @@
+= form_for @order, url: order_path do |f|
+  = render "shared/error_messages", target: @order
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    - if current_user.nil?
+      = f.text_field :name, class: 'mdl-textfield__input'
+      = f.label :name, class: 'mdl-textfield__label'
+    - else
+      = f.text_field :name, class: 'mdl-textfield__input', value: current_user.name, disabled: 'disabled'
+      = f.hidden_field :name, value: current_user.name
+      = f.label :name, class: 'mdl-textfield__label'
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    - if current_user.nil?
+      = f.text_field :contact, class: 'mdl-textfield__input'
+      = f.label :contact, class: 'mdl-textfield__label'
+    - else
+      = f.text_field :contact, class: 'mdl-textfield__input', value: current_user.email, disabled: 'disabled'
+      = f.hidden_field :contact, value: current_user.email
+      = f.label :contact, class: 'mdl-textfield__label'
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.text_area :comment, class: 'mdl-textfield__input'
+    = f.label :comment, class: 'mdl-textfield__label'
+  .actions = f.submit t('activerecord.attributes.order.submit'), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'

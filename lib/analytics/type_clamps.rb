@@ -30,10 +30,10 @@ module Analytics
     def array_of_types
       contents = []
       Clamp.select(:id, :duration)
-        .where(type: nil, device_id: @device.id).where.not(duration: nil)
-        .find_in_batches(batch_size: 6000) do |group|
+           .where(type: nil, device_id: @device.id).where.not(duration: nil)
+           .find_in_batches(batch_size: 6000) do |group|
         group.each do |item|
-          contents.push("(#{item.id}, '#{@device.check_type(item.duration.to_f)}')")
+          contents.push("(#{item.id},'#{@device.check_type(item.duration.to_f)}')")
         end
       end
       contents.join(', ')
